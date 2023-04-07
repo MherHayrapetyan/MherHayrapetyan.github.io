@@ -1,43 +1,243 @@
 * {
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
 }
+
+/* scrollBar */
+
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: white;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(99, 167, 194);
+}
+
+/* End scrollBar */
 
 /* Loading */
 
 .loading {
-    position: fixed;
-    background-color: black;
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999999;
+  position: fixed;
+  background-color: black;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999999;
 }
 
 .loadingBox {
-    width: 130px;
-    height: 40px;
-    display: flex;
-    justify-content: space-between;
+  width: 130px;
+  height: 40px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .loadingMiniBox {
-    width: 40px;
-    height: 40px;
-    border-radius: 100%;
-    animation-name: animOne;
-    animation-duration: .7s;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-    animation-timing-function: ease;
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+  animation-name: animOne;
+  animation-duration: 0.7s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-timing-function: ease;
 }
 
 @keyframes animOne {
-    0% {transform: scale(1);}
-    100% {transform: scale(0.6);}
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0.6);
+  }
 }
 
 /* Loading End */
+
+/* Content One One Image*/
+
+.contentOne {
+    width: 100%;
+    height: 100vh;
+    /* background-image: url(img/imgOne.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+     background-size: cover;
+     overflow: hidden; */
+}
+
+.webSayt {
+    height: 4000px;
+}
+
+.contentOneImg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(img/imgOne.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    opacity: .9;
+    visibility: inherit;
+    background-attachment: fixed;
+    z-index: -1;
+}
+
+.contentOneBoxer {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.contentOneBoxerTxtBox {
+    padding: 5px;
+    margin-left: 150px;
+    margin-top: -50px;
+    animation-name: animTxt;
+    animation-duration: .5s;
+    animation-timing-function: ease-in;
+    animation-fill-mode: forwards;
+    animation-fill-mode: 1;
+}
+
+@keyframes animTxt {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+}
+
+.contentOneBoxerTxtBoxTitle {
+    font-size: 2.8em;
+    font-weight: bold;
+    color: white;
+}
+
+.contentOneBoxerTxtBoxTxt {
+    margin-top: 7px;
+    color: white;
+    font-weight: bold;
+}
+
+.contentOneBoxerChangeBox {
+    width: 50px;
+    height: 220px;
+    margin-right: 20px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contentOneBoxerChangeBox >div {
+    margin-top: 15px;
+    cursor: pointer;
+}
+
+.contentOneBoxerChangeBoxLine {
+    width: 2px;
+    height: 120px;
+    background-color: white;
+    transform: scale(0);
+    animation: animLine .7s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+@keyframes animLine {
+    0% {transform: scale(0);}
+    100% {transform: scale(1);}
+}
+
+.contentOneBoxerChangeBoxBefore::before {
+    content: "";
+    width: 10px;
+    height: 10px;
+    background: #24c1dd;
+    position: absolute;
+    height: 3px;
+    width: 15px;
+    margin-top: 6px;
+    right: 15px
+}
+
+.contentOneJoinUsBox {
+    width: 200px;
+    position: absolute;
+    bottom: 70px;
+    left: 57%;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    align-items: center;
+}
+
+.contentOneJoinUsBoxBtt {
+    width: 80px;
+    height: 80px;
+    border-radius: 100%;
+    background-color: rgba(255,255,255,.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+    color: white;
+    cursor: pointer;
+}
+
+.contentOneJoinUsBoxBtt::before {
+    content: "";
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    border-radius: 100%;
+    border: 5px solid white;
+    margin: 5px;
+    transition: .5s;
+}
+
+.contentOneJoinUsBoxBtt:hover::before {
+    width: 70px;
+    height: 70px;
+    opacity: 0;
+    margin: 0;
+}
+
+.contentOneJoinUsBoxTxt {
+    font-size: 1.7em;
+    color: white;
+}
+
+.contentOneIcon {
+    width: 60px;
+    height: 60px;
+    background-color: red;
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+}
+
+.contentOneIcon >div {
+    color: white;
+    font-size: 1.5em;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* End Content One One Image */
