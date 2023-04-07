@@ -1,0 +1,43 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+/* Loading */
+
+.loading {
+    position: fixed;
+    background-color: black;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999999;
+}
+
+.loadingBox {
+    width: 130px;
+    height: 40px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.loadingMiniBox {
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    animation-name: animOne;
+    animation-duration: .7s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-timing-function: ease;
+}
+
+@keyframes animOne {
+    0% {transform: scale(1);}
+    100% {transform: scale(0.6);}
+}
+
+/* Loading End */
