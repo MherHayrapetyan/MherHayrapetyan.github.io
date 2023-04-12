@@ -13,11 +13,6 @@ const arr = [
     document.querySelectorAll(".contentThreeMiniBox")
 ]
 
-// document.addEventListener("mousemove", (e)=> {
-//     console.log(e)
-// })
-
-
 changeNum.forEach((itemOne, indexOne)=> {
     itemOne.onclick = ()=> {
         changeNum.forEach(item=>{
@@ -57,7 +52,7 @@ window.addEventListener("scroll", ()=> {
 })
 
 const contentOne = document.querySelector(".contentOne")
-const navigationBoxUlList = document.querySelectorAll(".navigationBoxUlList")
+const navigationBoxUlList = document.querySelectorAll(".backgroundGuyn")
 
 
 console.log(contentOne.clientHeight)
@@ -65,7 +60,7 @@ console.log(contentOne.clientHeight)
 window.addEventListener("scroll", ()=> {
     if(window.pageYOffset > 0 && window.pageYOffset < contentOne.clientHeight-90) {
         navigationBoxUlList.forEach(item=> {
-            item.style.background = "nonde"
+            item.style.background = "none"
         }) 
         navigationBoxUlList[0].style.background = "#24c1dd"
     }
@@ -139,3 +134,23 @@ document.addEventListener("mousemove", (e)=> {
         cursorOne.style.display = "none"
     }
 })
+
+const menuBurger = document.querySelector(".navigationBoxUlBurg")
+const headerBurger = document.querySelector(".headerMenuMediaBox")
+const headerMenuOgnox = document.querySelector(".headerMenuMediaBoxOgnox")
+const headerMenuClose = document.querySelector(".headerMenuClose")
+
+menuBurger.onclick = ()=> {
+    headerBurger.classList.add("headerMenuMediaBoxToggle")
+    headerMenuOgnox.style.display = "block"
+}
+
+headerMenuOgnox.onclick = ()=> {
+    headerBurger.classList.remove("headerMenuMediaBoxToggle")
+    headerMenuOgnox.style.display = "none"
+}
+
+headerMenuClose.onclick = ()=> {
+    headerBurger.classList.remove("headerMenuMediaBoxToggle")
+    headerMenuOgnox.style.display = "none"
+}

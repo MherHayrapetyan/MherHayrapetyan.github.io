@@ -1,0 +1,51 @@
+@media only screen and (max-width: 768px) {
+
+    .cursorOne {
+        display: none;
+    }
+
+    .backgroundGuyn {
+        display: none;
+    }
+
+    .navigationBoxUl {
+        justify-content: flex-end;
+    }
+
+    .contentOneBoxerChangeBox {
+        display: none;
+    }
+
+    .contentOneBoxer {
+        align-items: center;
+        justify-content: center;
+    }
+
+    .contentOneMiniBox {
+        margin-left: 0;
+        padding: 0 40px;
+        font-size: .9em;
+    }
+
+    .contentOneJoinUsBox {
+        left: 30%;
+    }
+
+    .contentOneIcon {
+        display: none;
+    }
+
+}
+
+@media only screen and (max-width: 400px) {
+
+    .contentOneJoinUsBox {
+        flex-direction: column;
+        left: 20%;
+    }
+
+    .headerMenuMediaBox {
+        width: 100%;
+    }
+
+}
