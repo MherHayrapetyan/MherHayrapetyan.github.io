@@ -2,7 +2,11 @@
   box-sizing: border-box;
   padding: 0;
   margin: 0;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  overflow-x: hidden;
 }
 
 /* scrollBar */
@@ -66,189 +70,198 @@
 /* Content One */
 
 .contentOne {
-    width: 100%;
-    height: 100vh;
-    /* background-image: url(img/imgOne.jpg);
-    background-repeat: no-repeat;
-    background-position: center;
-     background-size: cover;
-     overflow: hidden; */
+  width: 100%;
+  height: 100vh;
 }
 
 .webSayt {
-    height: 4000px;
+  height: 4000px;
 }
 
 .contentOneImg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url(img/imgOne.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
-    opacity: .9;
-    visibility: inherit;
-    background-attachment: fixed;
-    z-index: -1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url(img/imgOne.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  opacity: 0.9;
+  visibility: inherit;
+  background-attachment: fixed;
+  z-index: -1;
 }
 
 .contentOneBoxer {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .contentOneBoxerTxtBox {
-    padding: 5px;
-    margin-left: 150px;
-    margin-top: -50px;
-    animation-name: animTxt;
-    animation-duration: .5s;
-    animation-timing-function: ease-in;
-    animation-fill-mode: forwards;
-    animation-fill-mode: 1;
+  padding: 5px;
+  margin-left: 150px;
+  margin-top: -50px;
+  animation-name: animTxt;
+  animation-duration: 0.5s;
+  animation-timing-function: ease-in;
+  animation-fill-mode: forwards;
+  animation-fill-mode: 1;
 }
 
 @keyframes animTxt {
-    0% {opacity: 0;}
-    100% {opacity: 1;}
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 .contentOneBoxerTxtBoxTitle {
-    font-size: 2.8em;
-    font-weight: bold;
-    color: white;
+  font-size: 2.8em;
+  font-weight: bold;
+  color: white;
 }
 
 .contentOneBoxerTxtBoxTxt {
-    margin-top: 7px;
-    color: white;
-    font-weight: bold;
+  margin-top: 7px;
+  color: white;
+  font-weight: bold;
 }
 
 .contentOneBoxerChangeBox {
-    width: 50px;
-    height: 220px;
-    margin-right: 20px;
-    color: white;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  width: 50px;
+  height: 220px;
+  margin-right: 20px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.contentOneBoxerChangeBox >div {
-    margin-top: 15px;
-    cursor: pointer;
+.contentOneBoxerChangeBox > div {
+  margin-top: 15px;
+  cursor: pointer;
 }
 
 .contentOneBoxerChangeBoxLine {
-    width: 2px;
-    height: 120px;
-    background-color: white;
-    transform: scale(0);
-    animation: animLine .7s;
-    animation-iteration-count: 1;
-    animation-fill-mode: forwards;
+  width: 2px;
+  height: 120px;
+  background-color: white;
+  transform: scale(0);
+  animation: animLine 0.7s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
 }
 
 .contentOneBoxerChangeBoxBefore::before {
-    content: "";
-    width: 10px;
-    height: 10px;
-    background: #24c1dd;
-    position: absolute;
-    height: 3px;
-    width: 15px;
-    margin-top: 6px;
-    right: 15px;
-    animation: animLine .5s;
-    animation-iteration-count: 1;
-    animation-fill-mode: forwards;
+  content: "";
+  width: 10px;
+  height: 10px;
+  background: #24c1dd;
+  position: absolute;
+  height: 3px;
+  width: 15px;
+  margin-top: 6px;
+  right: 15px;
+  animation: animLine 0.5s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
 }
 
 @keyframes animLine {
-  0% {transform: scale(0);}
-  100% {transform: scale(1);}
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
 .contentOneJoinUsBox {
-    width: 200px;
-    position: absolute;
-    bottom: 70px;
-    left: 57%;
-    display: flex;
-    justify-content: space-between;
-    padding: 10px;
-    align-items: center;
-    animation: animJoinUs 2s;
-    animation-iteration-count: 1;
-    animation-fill-mode: forwards;
+  width: 200px;
+  position: absolute;
+  bottom: 70px;
+  left: 57%;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  align-items: center;
+  animation: animJoinUs 2s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
 }
 
 @keyframes animJoinUs {
-  0% {transform: translateY(100px); opacity: 0;}
-  100% {transform: translateX(0); opacity: 1;}
+  0% {
+    transform: translateY(100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
 }
 
 .contentOneJoinUsBoxBtt {
-    width: 80px;
-    height: 80px;
-    border-radius: 100%;
-    background-color: rgba(255,255,255,.3);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 2em;
-    color: white;
-    cursor: pointer;
+  width: 80px;
+  height: 80px;
+  border-radius: 100%;
+  background-color: rgba(255, 255, 255, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2em;
+  color: white;
+  cursor: pointer;
 }
 
 .contentOneJoinUsBoxBtt::before {
-    content: "";
-    position: absolute;
-    width: 60px;
-    height: 60px;
-    border-radius: 100%;
-    border: 5px solid white;
-    margin: 5px;
-    transition: .5s;
+  content: "";
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  border-radius: 100%;
+  border: 5px solid white;
+  margin: 5px;
+  transition: 0.5s;
 }
 
 .contentOneJoinUsBoxBtt:hover::before {
-    width: 70px;
-    height: 70px;
-    opacity: 0;
-    margin: 0;
+  width: 70px;
+  height: 70px;
+  opacity: 0;
+  margin: 0;
 }
 
 .contentOneJoinUsBoxTxt {
-    font-size: 1.7em;
-    color: white;
+  font-size: 1.7em;
+  color: white;
 }
 
 .contentOneIcon {
-    width: 60px;
-    height: 60px;
-    /* background-color: red; */
-    position: absolute;
-    right: 20px;
-    bottom: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 5px;
+  width: 60px;
+  height: 60px;
+  /* background-color: red; */
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
 }
 
-.contentOneIcon >div {
-    color: white;
-    font-size: 1.5em;
-    font-weight: bold;
-    cursor: pointer;
+.contentOneIcon > div {
+  color: white;
+  font-size: 1.5em;
+  font-weight: bold;
+  cursor: pointer;
 }
 
 .contentOneBoxerTxtBoxTwo {
@@ -256,15 +269,19 @@
   margin-left: 33%;
   margin-top: -70px;
   animation-name: animTxt;
-  animation-duration: .5s;
+  animation-duration: 0.5s;
   animation-timing-function: ease-in;
   animation-fill-mode: forwards;
   animation-fill-mode: 1;
 }
 
 @keyframes animTxt {
-  0% {opacity: 0;}
-  100% {opacity: 1;}
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 .contentOneBoxerTxtBoxTitleTwo {
@@ -290,20 +307,26 @@
   padding: 10px;
   align-items: center;
   animation: animJoinUsTwo 2s;
-    animation-iteration-count: 1;
-    animation-fill-mode: forwards;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
 }
 
 @keyframes animJoinUsTwo {
-  0% {transform: translateX(-100px); opacity: 0;}
-  100% {transform: translateX(0); opacity: 1;}
+  0% {
+    transform: translateX(-100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
 }
 
 .contentOneJoinUsBoxBttTwo {
   width: 80px;
   height: 80px;
   border-radius: 100%;
-  background-color: rgba(255,255,255,.3);
+  background-color: rgba(255, 255, 255, 0.3);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -320,7 +343,7 @@
   border-radius: 100%;
   border: 5px solid white;
   margin: 5px;
-  transition: .5s;
+  transition: 0.5s;
 }
 
 .contentOneJoinUsBoxBttTwo:hover::before {
@@ -345,7 +368,7 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
-  opacity: .9;
+  opacity: 0.9;
   visibility: inherit;
   background-attachment: fixed;
   z-index: -1;
@@ -356,15 +379,19 @@
   margin-left: 10%;
   margin-top: 120px;
   animation-name: animTxt;
-  animation-duration: .5s;
+  animation-duration: 0.5s;
   animation-timing-function: ease-in;
   animation-fill-mode: forwards;
   animation-fill-mode: 1;
 }
 
 @keyframes animTxt {
-  0% {opacity: 0;}
-  100% {opacity: 1;}
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 .contentOneBoxerTxtBoxTitleThree {
@@ -390,20 +417,26 @@
   padding: 10px;
   align-items: center;
   animation: animJoinUsThree 1s;
-    animation-iteration-count: 1;
-    animation-fill-mode: forwards;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
 }
 
 @keyframes animJoinUsThree {
-  0% {transform: scale(.8); opacity: 0;}
-  100% {transform: scale(1); opacity: 1;}
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 
 .contentOneJoinUsBoxBttThree {
   width: 80px;
   height: 80px;
   border-radius: 100%;
-  background-color: rgba(255,255,255,.3);
+  background-color: rgba(255, 255, 255, 0.3);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -420,7 +453,7 @@
   border-radius: 100%;
   border: 5px solid white;
   margin: 5px;
-  transition: .5s;
+  transition: 0.5s;
 }
 
 .contentOneJoinUsBoxBttThree:hover::before {
@@ -445,7 +478,7 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
-  opacity: .9;
+  opacity: 0.9;
   visibility: inherit;
   background-attachment: fixed;
   z-index: -1;
@@ -529,7 +562,7 @@ header {
   box-shadow: 0 5px 16px rgba(0, 0, 0, 0.1);
   padding: 8px 0;
   backdrop-filter: blur(10px);
-  animation: slideDown .5s ease-out;
+  animation: slideDown 0.5s ease-out;
   z-index: 9999;
   top: 0;
   width: 100%;
@@ -541,7 +574,7 @@ header {
 @keyframes slideDown {
   from {
     transform: translateY(-100%);
-    opacity: .3;
+    opacity: 0.3;
   }
   to {
     transform: translateY(0);
@@ -617,7 +650,7 @@ header {
 .headerMenuMediaBoxMiniTwoC {
   width: 100%;
   color: white;
-  font-size: .8em;
+  font-size: 0.8em;
   font-weight: bold;
   padding-left: 20px;
   padding-bottom: 30px;
@@ -625,13 +658,12 @@ header {
 
 .headerMenuMediaBoxToggle {
   display: flex;
-  animation: slideRight .5s ease-out;
+  animation: slideRight 0.5s ease-out;
   box-shadow: 0 5px 16px rgba(0, 0, 0, 0.1);
   animation-iteration-count: 1;
   animation-direction: alternate;
   animation-fill-mode: forwards;
 }
-
 
 @keyframes slideRight {
   from {
@@ -647,16 +679,15 @@ header {
 .headerMenuMediaBoxOgnox {
   width: 100%;
   height: 100vh;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   background-color: black;
-  opacity: .6;
+  opacity: 0.6;
   cursor: pointer;
-  z-index: 1200;
+  z-index: 11000;
   display: none;
 }
-
 
 /* Header End */
 
@@ -672,8 +703,155 @@ header {
   pointer-events: none;
   transform: translate(-50%, -50%);
   border-radius: 100%;
-  transition: .1s;
+  transition: 0.1s;
   z-index: 15000;
 }
 
 /* Cursor End */
+
+/* Content Two */
+
+.contentTwo {
+  width: 100%;
+  padding: 70px 5px;
+}
+
+.contentTwoImgBox {
+  position: absolute;
+  left: 0;
+  top: 100%;
+  width: 100%;
+  height: 500px;
+  z-index: -1;
+  filter: grayscale(1);
+  opacity: 0.8;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.9)),
+    url(img/imgContentTwo.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  visibility: inherit;
+  background-attachment: fixed;
+  filter: brightness(100%);
+}
+
+.contentTwoBigBox {
+  width: 100%;
+  z-index: 1;
+}
+
+.contentTwoBigBoxTextBigBoxTxtOne {
+  text-align: center;
+  color: #24c1dd;
+  font-weight: bold;
+  font-size: 1.8em;
+}
+
+.contentTwoBigBoxTextBigBoxTitle {
+  text-align: center;
+  color: white;
+  font-size: 2.5em;
+  margin-top: 20px;
+}
+
+.contentTwoBigBoxTextBigBoxTxtTwo {
+  text-align: center;
+  color: white;
+  margin-top: 20px;
+  font-family: "Roboto", sans-serif;
+  font-size: 15px;
+}
+
+.contentTwoBigBoxFlexBox {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+  padding: 5px;
+}
+
+.contentTwoBigBoxFlexBoxImgBox {
+  width: 47%;
+  padding: 3px;
+  animation-name: animImgTwo;
+  animation-duration: 3s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  display: none;
+}
+
+@keyframes animImgTwo {
+  0% {
+    transform: translateX(-110%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.contentTwoBigBoxFlexBoxImgBox img {
+  width: 100%;
+}
+
+.contentTwoBigBoxFlexBoxTextBox {
+  width: 50%;
+  animation-name: animTxtTwo;
+  animation-duration: 3s;
+  animation-timing-function: ease-out;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  display: none;
+}
+
+@keyframes animTxtTwo {
+  0% {
+    transform: translateX(110%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.contentTwoBigBoxFlexBoxTextBoxOne {
+  display: flex;
+  padding-bottom: 20px;
+  padding-right: 30%;
+}
+
+.contentTwoBigBoxFlexBoxTextBoxTwo {
+  margin-top: 17px;
+}
+
+.contentTwoBigBoxFlexBoxTextBoxOneLogoBox {
+  width: 45px;
+  height: 100%;
+  text-align: center;
+}
+
+.contentTwoBigBoxFlexBoxTextBoxOneLogoBox svg {
+  margin-top: 5px;
+  transition: 1.5s;
+}
+
+.contentTwoBigBoxFlexBoxTextBoxOneTxt {
+  margin-left: 15px;
+}
+
+.contentTwoBigBoxFlexBoxTextBoxOneTxtOne {
+  color: white;
+  font-weight: 100;
+  font-size: 22px;
+}
+
+.contentTwoBigBoxFlexBoxTextBoxOneTxtTwo {
+  margin-top: 10px;
+  color: rgb(226, 226, 226);
+}
+
+.contentTwoBigBoxFlexBoxTextBoxOne:hover
+  .contentTwoBigBoxFlexBoxTextBoxOneLogoBox
+  svg {
+  transform: rotateY(360deg);
+}
+
+/* Content Two End */

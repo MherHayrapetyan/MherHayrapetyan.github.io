@@ -1,70 +1,93 @@
 @media only screen and (max-width: 768px) {
+  .cursorOne {
+    display: none;
+  }
 
-    .cursorOne {
-        display: none;
-    }
+  .backgroundGuyn {
+    display: none;
+  }
 
-    .backgroundGuyn {
-        display: none;
-    }
+  .navigationBoxUl {
+    justify-content: flex-end;
+  }
 
-    .navigationBoxUl {
-        justify-content: flex-end;
-    }
+  .contentOneBoxerChangeBox {
+    display: none;
+  }
 
-    .contentOneBoxerChangeBox {
-        display: none;
-    }
+  .contentOneBoxer {
+    align-items: center;
+    justify-content: center;
+  }
 
-    .contentOneBoxer {
-        align-items: center;
-        justify-content: center;
-    }
+  .contentOneMiniBox {
+    margin-left: 0;
+    padding: 0 40px;
+    font-size: 0.9em;
+  }
 
-    .contentOneMiniBox {
-        margin-left: 0;
-        padding: 0 40px;
-        font-size: .9em;
-    }
+  .contentOneJoinUsBox {
+    left: 30%;
+  }
 
-    .contentOneJoinUsBox {
-        left: 30%;
-    }
+  .contentOneIcon,
+  .contentTwoBigBoxFlexBoxImgBox {
+    display: none;
+  }
 
-    .contentOneIcon {
-        display: none;
-    }
+  .contentTwoBigBoxFlexBoxTextBox {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+    flex-direction: column;
+  }
 
+  .contentTwoBigBoxFlexBoxTextBoxOne {
+    padding: 0;
+    flex-direction: column;
+  }
+
+  .contentTwoBigBoxFlexBoxTextBoxOneLogoBox {
+    width: 100%;
+  }
 }
 
 @media only screen and (max-width: 400px) {
+  .contentOneJoinUsBox,
+  .contentOneJoinUsBoxTwo,
+  .contentThreeMiniBox {
+    flex-direction: column;
+    left: 20%;
+    bottom: 5px;
+  }
 
-    .contentOneJoinUsBox {
-        flex-direction: column;
-        left: 20%;
-    }
-
-    .headerMenuMediaBox {
-        width: 100%;
-    }
-
+  .headerMenuMediaBox {
+    width: 100%;
+  }
 }
 
 @media (min-width: 768px) and (max-width: 1000px) {
+  .backgroundGuyn {
+    display: none;
+  }
 
-    .backgroundGuyn {
-        display: none;
-    }
-
-    .navigationBoxUl {
-        justify-content: flex-end;
-    }
-
+  .navigationBoxUl {
+    justify-content: flex-end;
+  }
 }
 
 @media (min-width: 1000px) and (max-width: 1100px) {
-    header {
-        width: 87%;
-    }
+  header {
+    width: 87%;
+  }
 }
 
+@media only screen and (max-width: 1200px) {
+  .contentTwoBigBoxFlexBoxTextBoxOne {
+    padding-right: 10%;
+  }
+
+  .contentTwoBigBoxFlexBoxImgBox {
+    text-align: center;
+  }
+}
