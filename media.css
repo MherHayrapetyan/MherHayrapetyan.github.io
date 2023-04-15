@@ -1,3 +1,13 @@
+@media only screen and (max-width: 1200px) {
+  .contentTwoBigBoxFlexBoxTextBoxOne {
+    padding-right: 10%;
+  }
+
+  .contentTwoBigBoxFlexBoxImgBox {
+    text-align: center;
+  }
+}
+
 @media only screen and (max-width: 768px) {
   .cursorOne {
     display: none;
@@ -50,6 +60,10 @@
   .contentTwoBigBoxFlexBoxTextBoxOneLogoBox {
     width: 100%;
   }
+
+  .contentTwoBigBoxFlexBoxTextBoxOne {
+    padding-right: 0;
+  }
 }
 
 @media only screen and (max-width: 400px) {
@@ -79,15 +93,5 @@
 @media (min-width: 1000px) and (max-width: 1100px) {
   header {
     width: 87%;
-  }
-}
-
-@media only screen and (max-width: 1200px) {
-  .contentTwoBigBoxFlexBoxTextBoxOne {
-    padding-right: 10%;
-  }
-
-  .contentTwoBigBoxFlexBoxImgBox {
-    text-align: center;
   }
 }
