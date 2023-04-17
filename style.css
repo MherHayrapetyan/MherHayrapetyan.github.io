@@ -855,3 +855,70 @@ header {
 }
 
 /* Content Two End */
+
+
+/* content Three */
+
+.contentThree {
+  width: 100%;
+  background-color: #24c1dd;
+  padding: 125px 50px;
+}
+
+.contentThreeTxtBox {
+  width: 95%;
+  text-align: center;
+  color: white;
+  opacity: 0;
+  transition: 1s;
+}
+
+.contentThreeTxtBox span {
+  font-size: 20px;
+}
+
+.contentThreeTxtBox p {
+  font-size: 3.3em;
+  margin-top: 20px;
+}
+
+.contentThreeBigBox {
+  width: 95%;
+  margin-top: 30px;
+  text-align: center;
+}
+
+.contentThreeSmallSmallBox {
+  display: inline-block;
+  width: 150px;
+  height: 120px;
+  text-align: center;
+  color: white;
+  cursor: pointer;
+  margin-left: 70px;
+  margin-top: 40px;
+  transition: 1s;
+  opacity: 0;
+}
+
+.contentThreeSmallSmallBoxNum {
+  font-size: 2em;
+  margin-top: 10px;
+}
+
+.contentThreeSmallSmallBoxTxt {
+  font-weight: bold;
+  margin-top: 10px;
+  font-size: 1.1em;
+}
+
+.contentThreeSmallSmallBoxIcon {
+  transition: .5s;
+}
+
+.contentThreeSmallSmallBox:hover .contentThreeSmallSmallBoxIcon {
+  transform: translateY(-20px);
+}
+
+/* content Three End */
+

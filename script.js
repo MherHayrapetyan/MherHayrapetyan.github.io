@@ -207,13 +207,80 @@ window.addEventListener("scroll", () => {
   }
 });
 
-console.log()
-
 function servTop() {
   window.scroll({
     top: 570,
     left: 0,
     behavior: "smooth",
   });
+}
+
+const contentThreeTxtBox = document.querySelector(".contentThreeTxtBox")
+const contentThree = document.querySelector(".contentThree")
+const contentThreeSmallBox = document.querySelectorAll(".contentThreeSmallSmallBox")
+const contentThreeSmallSmallBoxNum = document.querySelectorAll(".contentThreeSmallSmallBoxNum")
+
+
+window.addEventListener("scroll", () => {
+  if(window.pageYOffset > contentThreeTxtBox.scrollHeight + contentThree.scrollHeight+90) {
+    contentThreeTxtBox.style.opacity = "1"
+  }
+});
+
+let contentThreeNumTrue = true
+
+window.addEventListener("scroll", () => {
+  contentThreeSmallBox.forEach(item => {
+    if(window.pageYOffset > item.scrollHeight + contentThree.scrollHeight+200) {
+      item.style.opacity = "1"
+      if(contentThreeNumTrue) {
+        contentThreeNum()
+        contentThreeNumTrue = false
+      }
+    }
+  })
+});
+
+function contentThreeNum() {
+  
+  // contentThreeSmallSmallBoxNum[0].innerHTML = "500"
+
+  let o = 0
+  let tw = 0
+  let th = 213000
+  let f = 400
+
+  let setIntervalNumOne = setInterval(()=>{
+    contentThreeSmallSmallBoxNum[0].innerHTML = o
+    o++
+    if(o === 26) {
+      clearInterval(setIntervalNumOne)
+    }
+  }, 70)
+
+  let setIntervalNumTwo = setInterval(()=>{
+    contentThreeSmallSmallBoxNum[1].innerHTML = tw
+    tw++
+    if(tw === 33) {
+      clearInterval(setIntervalNumTwo)
+    }
+  }, 70)
+
+  let setIntervalNumThree = setInterval(()=>{
+    contentThreeSmallSmallBoxNum[2].innerHTML = th
+    th++
+    if(th === 213252) {
+      clearInterval(setIntervalNumThree)
+    }
+  }, 1)
+
+  let setIntervalNumFour = setInterval(()=>{
+    contentThreeSmallSmallBoxNum[3].innerHTML = f
+    f++
+    if(f === 778) {
+      clearInterval(setIntervalNumFour)
+    }
+  }, 1)
+
 }
 
