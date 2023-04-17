@@ -159,10 +159,16 @@ burgerClass.forEach((item, index) => {
   item.onclick = () => {
     headerBurger.classList.remove("headerMenuMediaBoxToggle");
     headerMenuOgnox.style.display = "none";
-    console.log(item);
     if (index === 0) {
       window.scroll({
         top: 0,
+        left: 0,
+        behavior: "smooth",
+      });
+    }
+    else if (index === 1) {
+      window.scroll({
+        top: 570,
         left: 0,
         behavior: "smooth",
       });
@@ -200,3 +206,14 @@ window.addEventListener("scroll", () => {
     }
   }
 });
+
+console.log()
+
+function servTop() {
+  window.scroll({
+    top: 570,
+    left: 0,
+    behavior: "smooth",
+  });
+}
+

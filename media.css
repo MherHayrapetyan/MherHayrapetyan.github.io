@@ -66,7 +66,7 @@
   }
 }
 
-@media only screen and (max-width: 400px) {
+@media only screen and (max-width: 425px) {
   .contentOneJoinUsBox,
   .contentOneJoinUsBoxTwo,
   .contentThreeMiniBox {
@@ -77,6 +77,25 @@
 
   .headerMenuMediaBox {
     width: 100%;
+  }
+
+  .contentOneImg,
+  .contentTwoImgBox {
+    background-attachment: local;
+  }
+
+  .contentTwo {
+    padding-bottom: 50px;
+  }
+
+  .contentOneJoinUsBoxBtt::before {
+    transition: 0;
+  }
+
+  .contentOneJoinUsBoxBtt:hover::before {
+    width: 60px;
+    height: 60px;
+    opacity: 1;
   }
 }
 
