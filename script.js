@@ -155,6 +155,10 @@ headerMenuClose.onclick = () => {
 
 const burgerClass = document.querySelectorAll(".burgerClass");
 
+const contentFour = document.querySelector(".contentFour")
+
+console.log(contentFour.offsetTop)
+
 burgerClass.forEach((item, index) => {
   item.onclick = () => {
     headerBurger.classList.remove("headerMenuMediaBoxToggle");
@@ -169,6 +173,12 @@ burgerClass.forEach((item, index) => {
     else if (index === 1) {
       window.scroll({
         top: 570,
+        left: 0,
+        behavior: "smooth",
+      });
+    } else if (index === 2) {
+      window.scroll({
+        top: contentFour.offsetTop-50,
         left: 0,
         behavior: "smooth",
       });
@@ -284,3 +294,42 @@ function contentThreeNum() {
 
 }
 
+function techTop() {
+  window.scroll({
+    top: contentFour.offsetTop-50,
+    left: 0,
+    behavior: "smooth",
+  });
+}
+
+console.log(window.pageYOffset)
+
+var swiper = new Swiper(".slide-content", {
+  slidesPerView: 3,
+  spaceBetween: 25,
+  loop: true,
+  centerSlide: "true",
+  fade: "true",
+  grabCursor: "true",
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
+    dynamicBullets: true,
+  },
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
+
+  breakpoints: {
+    0: {
+      slidesPerView: 1,
+    },
+    520: {
+      slidesPerView: 2,
+    },
+    950: {
+      slidesPerView: 3,
+    },
+  },
+});

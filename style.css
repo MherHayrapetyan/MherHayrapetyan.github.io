@@ -856,7 +856,6 @@ header {
 
 /* Content Two End */
 
-
 /* content Three */
 
 .contentThree {
@@ -913,7 +912,7 @@ header {
 }
 
 .contentThreeSmallSmallBoxIcon {
-  transition: .5s;
+  transition: 0.5s;
 }
 
 .contentThreeSmallSmallBox:hover .contentThreeSmallSmallBoxIcon {
@@ -922,3 +921,105 @@ header {
 
 /* content Three End */
 
+/* content Four */
+
+.contentFour {
+  background-color: black;
+  padding: 100px 0;
+}
+
+.contentFourTitleBox {
+  width: 57%;
+  text-align: center;
+  color: white;
+  margin: auto;
+}
+
+.contentFourTitleBoxTitle {
+  font-size: 3em;
+}
+
+.contentFourTitleBoxTxt {
+  margin-top: 30px;
+}
+
+.slide-container {
+  max-width: 1120px;
+  width: 100%;
+  padding: 40px 0;
+  background-color: black;
+  margin-top: 70px;
+}
+.slide-content {
+  margin: 0 40px;
+  overflow: hidden;
+  border-radius: 25px;
+}
+
+@media screen and (max-width: 768px) {
+  .slide-content {
+    margin: 0 10px;
+  }
+  .swiper-navBtn {
+    display: none;
+  }
+}
+
+.contentFourSwiperSmallBoxSmall {
+  width: 100%;
+  height: 100%;
+  background-color: black;
+}
+
+.contentFourSwiperSmallBoxSmallImg {
+  width: 100%;
+  height: 220px;
+  background-color: aqua;
+  border-radius: 15px;
+  transform: translateY(1px);
+  transition: 0.3s;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.contentFourSwiperSmallBoxSmallTxt {
+  width: 95%;
+  height: 200px;
+  margin: auto;
+  background-color: black;
+  border-radius: 10px;
+  transform: translateY(-50px);
+  color: white;
+  text-align: center;
+  padding: 0 10px;
+}
+
+.contentFourSwiperSmallBoxSmallTxt p:nth-child(1) {
+  transform: translateY(15px);
+  font-size: 1.5em;
+}
+
+.contentFourSwiperSmallBoxSmallTxt p:nth-child(2) {
+  transform: translateY(30px);
+  font-size: 0.9;
+}
+.contentFourSwiperSmallBoxSmallTxt:hover p:nth-child(1) {
+  color: #24c1dd;
+}
+
+.swiper-pagination span {
+  background-color: #24c1dd;
+}
+
+.contentFourSwiperSmallBoxSmallImg img {
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+  transition: .7s;
+}
+
+.contentFourSwiperSmallBoxSmallImg:hover img {
+  transform: scale(1.2);
+}
+
+/* content Four End */
