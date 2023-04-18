@@ -241,12 +241,16 @@ let contentThreeNumTrue = true
 
 window.addEventListener("scroll", () => {
   contentThreeSmallBox.forEach(item => {
-    if(window.pageYOffset > item.scrollHeight + contentThree.scrollHeight+200) {
-      item.style.opacity = "1"
-      if(contentThreeNumTrue) {
-        contentThreeNum()
-        contentThreeNumTrue = false
+    if(window.innerWidth < 768) {
+      if(window.pageYOffset > item.scrollHeight + contentThree.scrollHeight+200) {
+        item.style.opacity = "1"
+        if(contentThreeNumTrue) {
+        }
       }
+    } else {
+      item.style.opacity = "1"
+      contentThreeNumTrue = false
+      contentThreeNum()
     }
   })
 });
