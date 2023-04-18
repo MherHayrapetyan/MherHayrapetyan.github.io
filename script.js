@@ -156,6 +156,7 @@ headerMenuClose.onclick = () => {
 const burgerClass = document.querySelectorAll(".burgerClass");
 
 const contentFour = document.querySelector(".contentFour")
+const contentTwo = document.querySelector(".contentTwo");
 
 console.log(contentFour.offsetTop)
 
@@ -172,7 +173,7 @@ burgerClass.forEach((item, index) => {
     }
     else if (index === 1) {
       window.scroll({
-        top: 570,
+        top: contentTwo.offsetTop-50,
         left: 0,
         behavior: "smooth",
       });
@@ -194,7 +195,6 @@ function homeTop() {
   });
 }
 
-const contentTwo = document.querySelector(".contentTwo");
 const contentTwoImgBlue = document.querySelector(".contentTwoImgBox");
 
 const contentTwoTwoImgAnim = document.querySelector(
