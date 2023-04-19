@@ -1015,7 +1015,7 @@ header {
   width: 100%;
   height: 100%;
   border-radius: 15px;
-  transition: .7s;
+  transition: 0.7s;
 }
 
 .contentFourSwiperSmallBoxSmallImg:hover img {
@@ -1029,7 +1029,8 @@ header {
   margin-top: 70px;
 }
 
-.contentFourTwoBlockOne, .contentFourTwoBlockTwo {
+.contentFourTwoBlockOne,
+.contentFourTwoBlockTwo {
   width: 49%;
 }
 
@@ -1072,7 +1073,7 @@ header {
   height: 0;
   opacity: 1;
   background-color: black;
-  opacity: .9;
+  opacity: 0.9;
   transition: 1.3s;
 }
 
@@ -1140,7 +1141,7 @@ header {
 @keyframes realAnimOne {
   0% {
     width: 0%;
-  } 
+  }
   100% {
     width: 95%;
   }
@@ -1149,7 +1150,7 @@ header {
 @keyframes realAnimTwo {
   0% {
     width: 0%;
-  } 
+  }
   100% {
     width: 88%;
   }
@@ -1158,7 +1159,7 @@ header {
 @keyframes realAnimThree {
   0% {
     width: 0%;
-  } 
+  }
   100% {
     width: 83%;
   }
@@ -1167,7 +1168,7 @@ header {
 @keyframes realAnimFour {
   0% {
     width: 0%;
-  } 
+  }
   100% {
     width: 91%;
   }
@@ -1191,7 +1192,7 @@ header {
 }
 
 .contentFourThreeBlockTitle p {
-  font-size: .5em;
+  font-size: 0.5em;
   margin-top: 10px;
 }
 
@@ -1205,11 +1206,11 @@ header {
 .smallBoxFourOne {
   left: 170px;
 }
- 
+
 .smallBoxFourTwo {
   top: -310px;
   left: 10px;
-} 
+}
 
 .smallBoxFourThree {
   top: 340px;
@@ -1233,7 +1234,7 @@ header {
 .contentFourThreeBlockOneSmallImg img {
   width: 100%;
   height: auto;
-  transition: .3s;
+  transition: 0.3s;
 }
 
 .contentFourThreeBlockOneSmallTitle div {
@@ -1248,7 +1249,7 @@ header {
 
 .contentFourThreeBlockOneSmallTitle div:nth-child(1):hover {
   cursor: pointer;
-  color: rgb(48, 48, 48)
+  color: rgb(48, 48, 48);
 }
 
 .contentFourThreeBlockOneSmallTitle div:nth-child(2) {
@@ -1256,5 +1257,60 @@ header {
   color: #f1c30f;
 }
 
-
 /* content Four End */
+
+/* content Five */
+
+.contentFive {
+  width: 100%;
+}
+
+.contentFiveImg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  opacity: 0.8;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.9)),
+    url(img/parallax5.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  visibility: inherit;
+  background-attachment: fixed;
+  filter: brightness(100%);
+}
+
+.contentFiveBigBox {
+  width: 100%;
+}
+
+.contentFiveBigBoxTitle {
+  width: 100%;
+  text-align: center;
+  padding: 40px;
+}
+
+.contentFiveBigBoxTitle p:nth-child(1) {
+  color: #24c1dd;
+  font-weight: bold;
+  font-size: 1.3em;
+}
+
+.contentFiveBigBoxTitle p:nth-child(2) {
+  color: white;
+  font-size: 2.5em;
+  margin-top: 20px;
+}
+
+.contentFiveBigBoxTitle p:nth-child(3) {
+  color: white;
+  margin-top: 20px;
+}
+
+.contentFiveBigBoxInputBox {
+  width: 100%;
+  margin-top: 50px;
+}
+
+/* content Five End */
