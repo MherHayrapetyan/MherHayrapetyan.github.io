@@ -19,6 +19,38 @@
     margin-top: 70px;
     height: auto;
   }
+
+  .contentFourThreeBlockTitle {
+    width: 100%;
+    display: block;
+  }
+  .smallBoxFourTwo, .smallBoxFourOne, .smallBoxFourThree, .smallBoxFourFour {
+    left: 0;
+    top: 0;
+  }
+  .contentFourThreeBlockOneSmall {
+    display: block;
+    width: 90%;
+    height: 400px;
+    margin: -70px auto;
+  }
+
+  .smallBoxFourTwo, .smallBoxFourThree, .smallBoxFourFour, .contentFourThreeBlock {
+    margin-top: 200px;
+  }
+
+  .contentFour {
+    padding-bottom: 200px;
+  }
+
+  .contentFourThreeBlockOneSmallImg {
+    height: 400px;
+  }
+
+  .contentFourThreeBlockOneSmallImg img {
+    object-fit: cover;
+    height: 100%;
+  }
 }
 
 @media only screen and (max-width: 768px) {

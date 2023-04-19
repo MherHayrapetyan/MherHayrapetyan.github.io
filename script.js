@@ -346,7 +346,7 @@ const perSentNumAnim = document.querySelectorAll(
   ".contentFourTwoBlockOneTopOneTopRealOne"
 );
 const perSentBlock = document.querySelector(".contentFourTwoBlockOneTop");
-const perSentTrue = true;
+let perSentTrue = true;
 
 addEventListener("scroll", () => {
   if (window.pageYOffset > perSentBlock.offsetTop - 400) {
