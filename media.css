@@ -24,7 +24,10 @@
     width: 100%;
     display: block;
   }
-  .smallBoxFourTwo, .smallBoxFourOne, .smallBoxFourThree, .smallBoxFourFour {
+  .smallBoxFourTwo,
+  .smallBoxFourOne,
+  .smallBoxFourThree,
+  .smallBoxFourFour {
     left: 0;
     top: 0;
   }
@@ -35,7 +38,10 @@
     margin: -70px auto;
   }
 
-  .smallBoxFourTwo, .smallBoxFourThree, .smallBoxFourFour, .contentFourThreeBlock {
+  .smallBoxFourTwo,
+  .smallBoxFourThree,
+  .smallBoxFourFour,
+  .contentFourThreeBlock {
     margin-top: 200px;
   }
 
@@ -109,7 +115,6 @@
   .contentTwoBigBoxFlexBoxTextBoxOne {
     padding-right: 0;
   }
-
 }
 
 @media only screen and (max-width: 475px) {
@@ -151,7 +156,6 @@
   .contentFourTwoBlockTwo {
     margin-top: 150px;
   }
-
 }
 
 @media (min-width: 768px) and (max-width: 1000px) {
@@ -176,3 +180,48 @@
   }
 }
 
+@media only screen and (max-width: 860px) {
+  .twoInput {
+    margin-top: 10px;
+    margin-left: 0;
+  }
+  .contentFiveBigBoxInputBoxOne {
+    height: 80px;
+    flex-direction: column;
+    padding: 0 20px;
+  }
+  .contentFiveBigBoxInputBoxOneInp,
+  .contentFiveBigBoxTextarea textarea {
+    width: 100%;
+  }
+  .contentFiveBigBoxTextarea {
+    padding: 0 20px;
+  }
+  .contentFiveImg {
+    height: 730px;
+  }
+}
+
+@media only screen and (max-width: 645px) {
+  .contentFiveImg {
+    height: 770px;
+  }
+}
+
+@media only screen and (max-width: 410px) {
+  .contentFiveImg {
+    height: 820px;
+  }
+}
+
+@media only screen and (max-width: 280px) {
+  .contentFiveImg {
+    height: 940px;
+  }
+}
+
+@media only screen and (max-width: 250px) {
+  .contentFiveImg {
+    height: 1010px;
+  }
+} 

@@ -4,8 +4,12 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>
+      CodeTitans - We provide high quality, cost effective and reliable result
+      oriented web applications
+    </title>
     <link rel="stylesheet" href="style.css" />
+    <link rel="icon" type="text/css" href="img/favicon.png" />
     <link rel="stylesheet" href="media.css" />
     <link
       href="
@@ -82,9 +86,13 @@ https://cdn.jsdelivr.net/npm/swiper@9.1.1/modules/scrollbar/scrollbar.min.css
             <li onclick="techTop()" class="navigationBoxUlList backgroundGuyn">
               Technologies
             </li>
-            <li class="navigationBoxUlList backgroundGuyn">Portfolio</li>
+            <li onclick="portTop()" class="navigationBoxUlList backgroundGuyn">
+              Portfolio
+            </li>
             <li class="navigationBoxUlList backgroundGuyn">Careers</li>
-            <li class="navigationBoxUlList backgroundGuyn">Contact</li>
+            <li onclick="contTop()" class="navigationBoxUlList backgroundGuyn">
+              Contact
+            </li>
             <li class="navigationBoxUlBurg">
               <svg
                 class="navigationBoxUlBurgCursor"
@@ -902,25 +910,47 @@ https://cdn.jsdelivr.net/npm/swiper@9.1.1/modules/scrollbar/scrollbar.min.css
 
       <div class="contentFive">
         <div class="contentFiveImg"></div>
-
         <div class="contentFiveBigBox">
           <div class="contentFiveBigBoxTitle">
-              <p>Leave A Message</p>
-              <p>Interested In Working With Us?</p>
-              <p>
-                Let’s Talk and Get Started
-              </p>
+            <p>Leave A Message</p>
+            <p>Interested In Working With Us?</p>
+            <p>Let’s Talk and Get Started</p>
           </div>
+          <div class="contentFiveBigBoxInputBoxTop"></div>
           <div class="contentFiveBigBoxInputBox">
-            
+            <div class="contentFiveBigBoxInputBoxOne">
+              <div class="contentFiveBigBoxInputBoxOneInp">
+                <input type="text" name="text" placeholder="Name" />
+              </div>
+              <div class="contentFiveBigBoxInputBoxOneInp twoInput">
+                <input type="text" name="surname" placeholder="Surname" />
+              </div>
+            </div>
+            <div class="contentFiveBigBoxInputBoxOne InputBoxTwo">
+              <div class="contentFiveBigBoxInputBoxOneInp">
+                <input type="email" name="email" placeholder="Email" />
+              </div>
+              <div class="contentFiveBigBoxInputBoxOneInp twoInput">
+                <input type="text" name="subject" placeholder="Subject" />
+              </div>
+            </div>
+            <div class="contentFiveBigBoxTextarea">
+              <textarea placeholder="Message"></textarea>
+            </div>
+            <div class="contentFiveBigBoxBtt">
+              <button>Contact Now</button>
+            </div>
           </div>
         </div>
-
       </div>
-
-
+      <footer>
+        <div class="footerLogoBox">f</div>
+        <div class="footerTxtBox">
+          © 2023 CodeTitans. Made with love by titans
+        </div>
+        <div></div>
+      </footer>
     </div>
-
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
     <script src="script.js"></script>
   </body>

@@ -1,16 +1,54 @@
 const loading = document.querySelector(".loading");
-
-window.onload = (event) => {
-  loading.style.display = "none";
-};
-
 const changeNum = document.querySelectorAll(".contentOneBoxerChangeBoxNum");
+const headerBox = document.querySelector("header");
+const contentOne = document.querySelector(".contentOne");
+const navigationBoxUlList = document.querySelectorAll(".backgroundGuyn");
+const menuBurger = document.querySelector(".navigationBoxUlBurg");
+const headerBurger = document.querySelector(".headerMenuMediaBox");
+const headerMenuOgnox = document.querySelector(".headerMenuMediaBoxOgnox");
+const headerMenuClose = document.querySelector(".headerMenuClose");
+const burgerClass = document.querySelectorAll(".burgerClass");
+const contentTwoImgBlue = document.querySelector(".contentTwoImgBox");
+const contentThreeTxtBox = document.querySelector(".contentThreeTxtBox");
+const contentThree = document.querySelector(".contentThree");
+const perSentBlock = document.querySelector(".contentFourTwoBlockOneTop");
+const ulLiBackgColor = document.querySelectorAll(".backgroundGuyn");
+const inputBoxTop = document.querySelector(".contentFiveBigBoxInputBoxTop");
+const inputBox = document.querySelector(".contentFiveBigBoxInputBox");
+const perSentNum = document.querySelectorAll(
+  ".contentFourTwoBlockOneTopOneTxtNum"
+);
+const perSentNumAnim = document.querySelectorAll(
+  ".contentFourTwoBlockOneTopOneTopRealOne"
+);
+const contentThreeSmallBox = document.querySelectorAll(
+  ".contentThreeSmallSmallBox"
+);
+const contentThreeSmallSmallBoxNum = document.querySelectorAll(
+  ".contentThreeSmallSmallBoxNum"
+);
+const contentTwoTwoImgAnim = document.querySelector(
+  ".contentTwoBigBoxFlexBoxImgBox"
+);
+const contentTwoTwoTxtAnim = document.querySelector(
+  ".contentTwoBigBoxFlexBoxTextBox"
+);
+const contentFour = document.querySelector(".contentFour");
+const contentTwo = document.querySelector(".contentTwo");
+const contentFourThreeBlock = document.querySelector(".contentFourThreeBlock");
+const contentFive = document.querySelector(".contentFive");
+const cursorOne = document.querySelector(".cursorOne");
+const headerLogoBox = document.querySelector(".logoBox");
 const changeLine = document.querySelectorAll(".contentOneBoxerChangeBoxLine");
 const arr = [
   document.querySelectorAll(".contentOneMiniBox"),
   document.querySelectorAll(".contentTwoMiniBox"),
   document.querySelectorAll(".contentThreeMiniBox"),
 ];
+
+window.onload = (event) => {
+  loading.style.display = "none";
+};
 
 changeNum.forEach((itemOne, indexOne) => {
   itemOne.onclick = () => {
@@ -39,8 +77,6 @@ changeNum.forEach((itemOne, indexOne) => {
   };
 });
 
-const headerBox = document.querySelector("header");
-
 window.addEventListener("scroll", () => {
   if (window.pageYOffset > 120) {
     headerBox.classList.add("toggleClassHeader");
@@ -48,9 +84,6 @@ window.addEventListener("scroll", () => {
     headerBox.classList.remove("toggleClassHeader");
   }
 });
-
-const contentOne = document.querySelector(".contentOne");
-const navigationBoxUlList = document.querySelectorAll(".backgroundGuyn");
 
 window.addEventListener("scroll", () => {
   if (
@@ -63,9 +96,6 @@ window.addEventListener("scroll", () => {
     navigationBoxUlList[0].style.background = "#24c1dd";
   }
 });
-
-const cursorOne = document.querySelector(".cursorOne");
-const headerLogoBox = document.querySelector(".logoBox");
 
 document.addEventListener("mousemove", (e) => {
   cursorOne.style.cssText =
@@ -133,11 +163,6 @@ document.addEventListener("mousemove", (e) => {
   }
 });
 
-const menuBurger = document.querySelector(".navigationBoxUlBurg");
-const headerBurger = document.querySelector(".headerMenuMediaBox");
-const headerMenuOgnox = document.querySelector(".headerMenuMediaBoxOgnox");
-const headerMenuClose = document.querySelector(".headerMenuClose");
-
 menuBurger.onclick = () => {
   headerBurger.classList.add("headerMenuMediaBoxToggle");
   headerMenuOgnox.style.display = "block";
@@ -152,11 +177,6 @@ headerMenuClose.onclick = () => {
   headerBurger.classList.remove("headerMenuMediaBoxToggle");
   headerMenuOgnox.style.display = "none";
 };
-
-const burgerClass = document.querySelectorAll(".burgerClass");
-
-const contentFour = document.querySelector(".contentFour");
-const contentTwo = document.querySelector(".contentTwo");
 
 burgerClass.forEach((item, index) => {
   item.onclick = () => {
@@ -180,6 +200,18 @@ burgerClass.forEach((item, index) => {
         left: 0,
         behavior: "smooth",
       });
+    } else if (index === 3) {
+      window.scroll({
+        top: contentFourThreeBlock.offsetTop - 50,
+        left: 0,
+        behavior: "smooth",
+      });
+    } else if (index === 5) {
+      window.scroll({
+        top: contentFive.offsetTop - 50,
+        left: 0,
+        behavior: "smooth",
+      });
     }
   };
 });
@@ -191,15 +223,6 @@ function homeTop() {
     behavior: "smooth",
   });
 }
-
-const contentTwoImgBlue = document.querySelector(".contentTwoImgBox");
-
-const contentTwoTwoImgAnim = document.querySelector(
-  ".contentTwoBigBoxFlexBoxImgBox"
-);
-const contentTwoTwoTxtAnim = document.querySelector(
-  ".contentTwoBigBoxFlexBoxTextBox"
-);
 
 window.addEventListener("scroll", () => {
   if (window.pageYOffset > 320) {
@@ -216,20 +239,11 @@ window.addEventListener("scroll", () => {
 
 function servTop() {
   window.scroll({
-    top: 570,
+    top: contentTwo.offsetTop - 50,
     left: 0,
     behavior: "smooth",
   });
 }
-
-const contentThreeTxtBox = document.querySelector(".contentThreeTxtBox");
-const contentThree = document.querySelector(".contentThree");
-const contentThreeSmallBox = document.querySelectorAll(
-  ".contentThreeSmallSmallBox"
-);
-const contentThreeSmallSmallBoxNum = document.querySelectorAll(
-  ".contentThreeSmallSmallBoxNum"
-);
 
 window.addEventListener("scroll", () => {
   if (
@@ -255,14 +269,15 @@ window.addEventListener("scroll", () => {
       }
     } else {
       item.style.opacity = "1";
-      contentThreeNumTrue = false;
-      contentThreeNum();
+      if (contentThreeNumTrue) {
+        contentThreeNum();
+        contentThreeNumTrue = false;
+      }
     }
   });
 });
 
 function contentThreeNum() {
-
   let o = 0;
   let tw = 0;
   let th = 213000;
@@ -339,13 +354,6 @@ var swiper = new Swiper(".slide-content", {
   },
 });
 
-const perSentNum = document.querySelectorAll(
-  ".contentFourTwoBlockOneTopOneTxtNum"
-);
-const perSentNumAnim = document.querySelectorAll(
-  ".contentFourTwoBlockOneTopOneTopRealOne"
-);
-const perSentBlock = document.querySelector(".contentFourTwoBlockOneTop");
 let perSentTrue = true;
 
 addEventListener("scroll", () => {
@@ -353,15 +361,14 @@ addEventListener("scroll", () => {
     if (perSentTrue) {
       perSentNumAnim.forEach((item) => {
         item.style.animationIterationCount = "1";
-        perSentNumFn()
+        perSentNumFn();
       });
-      perSentTrue = false
+      perSentTrue = false;
     }
   }
 });
 
 function perSentNumFn() {
-
   let o = 0;
   let tw = 0;
   let th = 0;
@@ -399,3 +406,59 @@ function perSentNumFn() {
     }
   }, 50);
 }
+
+addEventListener("scroll", () => {
+  if (window.pageYOffset > inputBoxTop.offsetTop - 700) {
+    inputBox.style.display = "block";
+  }
+});
+
+function portTop() {
+  window.scroll({
+    top: contentFourThreeBlock.offsetTop - 50,
+    left: 0,
+    behavior: "smooth",
+  });
+}
+
+function contTop() {
+  window.scroll({
+    top: contentFive.offsetTop - 50,
+    left: 0,
+    behavior: "smooth",
+  });
+}
+
+addEventListener("scroll", () => {
+  if (window.pageYOffset > 0) {
+    ulLiBackgColor.forEach((item) => {
+      item.style.background = "none";
+    });
+    ulLiBackgColor[0].style.background = "#24c1dd";
+  }
+  if (window.pageYOffset > contentTwo.offsetTop - 55) {
+    ulLiBackgColor.forEach((item) => {
+      item.style.background = "none";
+    });
+    ulLiBackgColor[1].style.background = "#24c1dd";
+  }
+  if (window.pageYOffset > contentFour.offsetTop - 55) {
+    ulLiBackgColor.forEach((item) => {
+      item.style.background = "none";
+    });
+    ulLiBackgColor[2].style.background = "#24c1dd";
+  }
+  if (window.pageYOffset > contentFourThreeBlock.offsetTop - 55) {
+    ulLiBackgColor.forEach((item) => {
+      item.style.background = "none";
+    });
+    ulLiBackgColor[3].style.background = "#24c1dd";
+  }
+  if (window.pageYOffset > contentFive.offsetTop - 57) {
+    ulLiBackgColor.forEach((item) => {
+      item.style.background = "none";
+    });
+    ulLiBackgColor[5].style.background = "#24c1dd";
+  }
+});
+ 
