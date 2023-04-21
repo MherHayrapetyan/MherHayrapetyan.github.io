@@ -861,7 +861,7 @@ header {
 .contentThree {
   width: 100%;
   background-color: #24c1dd;
-  padding: 125px 50px;
+  padding: 125px 0;
 }
 
 .contentThreeTxtBox {
