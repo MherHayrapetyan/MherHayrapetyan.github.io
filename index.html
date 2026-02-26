@@ -1,957 +1,216 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>
-      CodeTitans - We provide high quality, cost effective and reliable result
-      oriented web applications
-    </title>
-    <link rel="stylesheet" href="style.css" />
-    <link rel="icon" type="text/css" href="img/favicon.png" />
-    <link rel="stylesheet" href="media.css" />
-    <link
-      href="
-https://cdn.jsdelivr.net/npm/swiper@9.1.1/modules/scrollbar/scrollbar.min.css
-"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"
-    />
-  </head>
-  <body>
-    <div class="loading">
-      <div class="loadingBox">
-        <div style="border: 4px solid yellow" class="loadingMiniBox"></div>
-        <div
-          style="animation-delay: 0.2s; border: 4px solid rgb(72, 175, 216)"
-          class="loadingMiniBox"
-        ></div>
-        <div
-          style="animation-delay: 0.3s; border: 4px solid rgb(46, 145, 46)"
-          class="loadingMiniBox"
-        ></div>
-      </div>
+<html lang="hy">
+<head>
+    <meta charset="UTF-8">
+    <title>Հաշիվ-Ապրանքագիր</title>
+    <style>
+        body { font-family: 'Arial', sans-serif; background-color: #f4f7f6; display: flex; flex-direction: column; align-items: center; padding: 40px; }
+        .container { width: 800px; background: white; padding: 40px; border-radius: 12px; box-shadow: 0 5px 20px rgba(0,0,0,0.1); }
+        
+        .header { text-align: center; margin-bottom: 30px; border-bottom: 2px solid #28a745; padding-bottom: 20px; }
+        .header div { font-size: 18px; font-weight: bold; margin-bottom: 5px; }
+
+        .main-select { width: 100%; padding: 12px; margin-bottom: 25px; border: 1px solid #ddd; border-radius: 8px; font-size: 16px; }
+
+        .labels-grid, .row-grid { 
+            display: grid; 
+            grid-template-columns: 2.5fr 1fr 1fr 1.2fr 45px; 
+            gap: 12px; 
+            margin-bottom: 12px; 
+            align-items: center;
+        }
+
+        .labels-grid div { font-weight: bold; color: #555; text-align: center; background: #eee; padding: 8px; border-radius: 4px; }
+
+        input, select { padding: 10px; border: 1px solid #ccc; border-radius: 6px; font-size: 14px; width: 100%; box-sizing: border-box; }
+        input[readonly] { background-color: #f9f9f9; border-color: #eee; outline: none; }
+
+        .delete-btn { background: #dc3545; color: white; border: none; border-radius: 6px; height: 35px; cursor: pointer; font-weight: bold; }
+        .delete-btn:hover { background: #c82333; }
+
+        .footer-section { margin-top: 30px; border-top: 2px solid #eee; padding-top: 20px; text-align: right; }
+        .total-box { font-size: 22px; font-weight: bold; margin-bottom: 20px; }
+        
+        .actions { display: flex; gap: 15px; justify-content: center; }
+        .btn { padding: 12px 30px; border: none; border-radius: 8px; cursor: pointer; font-weight: bold; font-size: 16px; transition: 0.2s; }
+        .btn-add { background: #28a745; color: white; font-size: 24px; line-height: 1; }
+        .btn-print { background: #007bff; color: white; }
+        .btn-clear { background: #6c757d; color: white; }
+        .btn:hover { opacity: 0.9; transform: scale(1.02); }
+
+        @media print {
+            body { background: white; padding: 0; }
+            .container { box-shadow: none; width: 100%; border: none; }
+            .btn, .delete-btn, .actions { display: none !important; }
+            input, select { border: none !important; appearance: none; -webkit-appearance: none; background: transparent; }
+            .labels-grid div { background: #f0f0f0 !important; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <div>Յուրա Հայրապետյան ՆԴՍ</div>
+        <div>«ՈՍԿԵ ԱԳԱ» ՍՊԸ</div>
+        <div>ՀՎՀՀ՝ 01237057</div>
     </div>
 
-    <div class="headerMenuMediaBox">
-      <div class="headerMenuMediaBoxMiniOne">
-        <div class="headerMenuMediaBoxMiniOneClose">
-          <p class="navigationBoxUlList headerMenuClose">X</p>
-        </div>
-        <div class="headerMenuMediaBoxMiniOneList">
-          <ul>
-            <li class="navigationBoxUlList burgerClass">Home</li>
-            <li class="navigationBoxUlList burgerClass">Services</li>
-            <li class="navigationBoxUlList burgerClass">Technologies</li>
-            <li class="navigationBoxUlList burgerClass">Portfolio</li>
-            <li class="navigationBoxUlList burgerClass">Careers</li>
-            <li class="navigationBoxUlList burgerClass">Contact</li>
-          </ul>
-        </div>
-      </div>
-      <div class="headerMenuMediaBoxMiniTwo">
-        <div class="headerMenuMediaBoxMiniTwoIcon">
-          <div style="cursor: pointer" class="contentOneIconCursor">f</div>
-        </div>
-        <div class="headerMenuMediaBoxMiniTwoC">
-          <p>© 2023 CodeTitans. Made With Love by titans</p>
-        </div>
-      </div>
-    </div>
+    <select class="main-select" onchange="autoSave()">
+        <option value="">Ընտրեք անունը...</option>
+          <option value="1">Ք․ Երևան, Խաղաղ Դոնի 13</option>
+          <option value="2">Ք․ Երևան, Երվանդ Քոչար 4/8</option>
+          <option value="3">Ք․ Երևան, Գյուլբենկյան 27, թ․ 5/2</option>
+          <option value="4">Ք․ Երևան, Ն․ Ստեփանյան 44/4, թ․48</option>
+          <option value="5">Ք․ Երևան, Զաքյան 2գ</option>
+          <option value="6">Ք․ Երևան, Նար-Դոս 39</option>
+          <option value="7">
+            Ք․ Երևան, 9-րդ զանգ․ Վիլնյուսի փող․ 2շ․,թիվ 103
+          </option>
+          <option value="8">Ք․ Երևան, Մարգարյան փող․, հ8/1</option>
+          <option value="9">Ք․ Երևան, Մաշտոցի 15թիվ 185</option>
+          <option value="10">Ք․ Երևան, Սեբաստիա 141/1 թիվ 70</option>
+          <option value="11">Ք․ Երևան, Հասրաթյան 4</option>
+          <option value="12">Ք․ Երևան, Հանրապետության 61</option>
+          <option value="13">Ք․ Երևան, Ազատության 9թիվ 40</option>
+          <option value="14">Ք․ Գյումրի, Արագածի 8/1</option>
+          <option value="15">Ք․ Երևան, Հյուսիսային պող․ 3շ․ 84տար</option>
+          <option value="16">Ք․ Երևան, Աշխաբադի փող․ թիվ 2/9</option>
+          <option value="17">Ք․ Երևան, 9-րդ զանգ․ Վիլնյուսի փող․ 53/2շ․</option>
+          <option value="18">Ք․ Երևան, Տերյան 66</option>
+          <option value="19">Ք․ Երևան, Հրաչյա Քոչար 16/6</option>
+          <option value="20">Ք․ Երևան, Բագրատունյաց փող․ 8շ․ 74տարածք</option>
+    </select>
 
-    <div class="headerMenuMediaBoxOgnox"></div>
-
-    <div class="webSayt">
-      <div class="cursorOne"></div>
-      <header>
-        <div class="logoBox">
-          <img style="cursor: pointer" class="imgLogoBox" src="img/logo.png" />
-        </div>
-        <div class="navigationBox">
-          <ul class="navigationBoxUl">
-            <li
-              onclick="homeTop()"
-              style="background: #24c1dd"
-              class="navigationBoxUlList backgroundGuyn"
-            >
-              Home
-            </li>
-            <li onclick="servTop()" class="navigationBoxUlList backgroundGuyn">
-              Services
-            </li>
-            <li onclick="techTop()" class="navigationBoxUlList backgroundGuyn">
-              Technologies
-            </li>
-            <li onclick="portTop()" class="navigationBoxUlList backgroundGuyn">
-              Portfolio
-            </li>
-            <li class="navigationBoxUlList backgroundGuyn">Careers</li>
-            <li onclick="contTop()" class="navigationBoxUlList backgroundGuyn">
-              Contact
-            </li>
-            <li class="navigationBoxUlBurg">
-              <svg
-                class="navigationBoxUlBurgCursor"
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                stroke="#ffffff"
-              >
-                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                <g
-                  id="SVGRepo_tracerCarrier"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                ></g>
-                <g id="SVGRepo_iconCarrier">
-                  <path
-                    class="navigationBoxUlBurgCursor"
-                    d="M4 17H20M4 12H20M4 7H20"
-                    stroke="#000000"
-                    stroke-width="1.5"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  ></path>
-                </g>
-              </svg>
-            </li>
-          </ul>
-        </div>
-      </header>
-
-      <div class="contentOne">
-        <div class="contentOneImg contentOneMiniBox"></div>
-        <div class="contentOneImgTwo contentTwoMiniBox"></div>
-        <div class="contentOneImgThree contentThreeMiniBox"></div>
-
-        <div class="contentOneBoxer">
-          <div class="contentOneBoxerTxtBox contentOneMiniBox">
-            <div class="contentOneBoxerTxtBoxTitle">CodeTitans</div>
-            <div class="contentOneBoxerTxtBoxTxt">
-              CodeTitans is startup web development company based in Yerevan.
-              <br />
-              Our services are Web site development, API integrations and API
-              creations. <br />
-              SAAS product development, CRM systems and web based applications
-            </div>
-          </div>
-
-          <div class="contentOneBoxerTxtBoxTwo contentTwoMiniBox">
-            <div class="contentOneBoxerTxtBoxTitleTwo">CodeTitans</div>
-            <div class="contentOneBoxerTxtBoxTxtTwo">
-              <span style="padding-left: 50px">
-                We deliver functional, convenient, and visually compelling
-              </span>
-              <br />
-              <span style="padding-left: 140px">
-                Web applications that offer end users
-              </span>
-              <br />
-              invariably perfect experience across desktops, smartphones, and
-              tablets
-            </div>
-          </div>
-
-          <div class="contentOneBoxerTxtBoxThree contentThreeMiniBox">
-            <div class="contentOneBoxerTxtBoxTxtThree">
-              We can modernize or completely redesign unfriendly and <br />
-              old-fashioned web interfaces in order to align them with the
-              <br />
-              evolving needs of end users and current technologies.
-            </div>
-          </div>
-
-          <div class="contentOneBoxerChangeBox">
-            <div
-              class="contentOneBoxerChangeBoxCursor contentOneBoxerChangeBoxNum contentOneBoxerChangeBoxBefore"
-            >
-              01
-            </div>
-            <div
-              class="contentOneBoxerChangeBoxCursor contentOneBoxerChangeBoxLine"
-              style="display: block"
-            ></div>
-            <div
-              class="contentOneBoxerChangeBoxCursor contentOneBoxerChangeBoxNum"
-            >
-              02
-            </div>
-            <div
-              class="contentOneBoxerChangeBoxCursor contentOneBoxerChangeBoxLine"
-              style="display: none"
-            ></div>
-            <div
-              class="contentOneBoxerChangeBoxCursor contentOneBoxerChangeBoxNum"
-            >
-              03
-            </div>
-            <div
-              class="contentOneBoxerChangeBoxCursor contentOneBoxerChangeBoxLine"
-              style="display: none"
-            ></div>
-          </div>
-        </div>
-
-        <div class="contentOneMiniBox">
-          <div class="contentOneJoinUsBox">
-            <div class="contentOneJoinUsBoxBttCursor contentOneJoinUsBoxBtt">
-              >
-            </div>
-            <div class="contentOneJoinUsBoxTxt">Join Us</div>
-          </div>
-        </div>
-
-        <div class="contentTwoMiniBox">
-          <div class="contentOneJoinUsBoxTwo">
-            <div class="contentOneJoinUsBoxBttCursor contentOneJoinUsBoxBttTwo">
-              >
-            </div>
-            <div class="contentOneJoinUsBoxTxtTwo">Join Us</div>
-          </div>
-        </div>
-
-        <div class="contentThreeMiniBox">
-          <div class="contentOneJoinUsBoxThree">
-            <div
-              class="contentOneJoinUsBoxBttCursor contentOneJoinUsBoxBttThree"
-            >
-              >
-            </div>
-            <div class="contentOneJoinUsBoxTxtThree">Join Us</div>
-          </div>
-        </div>
-
-        <div class="contentOneIcon">
-          <div class="contentOneIconCursor">f</div>
-        </div>
-      </div>
-
-      <div class="contentTwo">
-        <div class="contentTwoImgBox"></div>
-
-        <div class="contentTwoBigBox">
-          <div class="contentTwoBigBoxTextBigBox">
-            <div class="contentTwoBigBoxTextBigBoxTxtOne">What We Do</div>
-            <div class="contentTwoBigBoxTextBigBoxTitle">
-              Improve Performance,<br />
-              Reduce Costs
-            </div>
-            <div class="contentTwoBigBoxTextBigBoxTxtTwo">
-              We provide high quality, cost effective and reliable result
-              oriented web applications to help you<br />
-              succeed in rapidly changing tech-driven markets
-            </div>
-          </div>
-          <div class="contentTwoBigBoxFlexBox">
-            <div class="contentTwoBigBoxFlexBoxImgBox">
-              <img src="img/contentTwoOne.jpg" />
-            </div>
-
-            <div class="contentTwoBigBoxFlexBoxTextBox">
-              <div class="contentTwoBigBoxFlexBoxTextBoxOne">
-                <div class="contentTwoBigBoxFlexBoxTextBoxOneLogoBox">
-                  <svg
-                    fill="#24c1dd"
-                    height="40px"
-                    width="40px"
-                    version="1.1"
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 350 350"
-                    xmlns:xlink="http://www.w3.org/1999/xlink"
-                    enable-background="new 0 0 350 350"
-                    stroke="#24c1dd"
-                  >
-                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                    <g
-                      id="SVGRepo_tracerCarrier"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    ></g>
-                    <g id="SVGRepo_iconCarrier">
-                      <path
-                        d="M5,350h340V0H5V350z M25,330v-62.212h300V330H25z M179.509,247.494H60.491L120,171.253L179.509,247.494z M176.443,211.061l33.683-32.323l74.654,69.05h-79.67L176.443,211.061z M325,96.574c-6.384,2.269-13.085,3.426-20,3.426 c-33.084,0-60-26.916-60-60c0-6.911,1.156-13.612,3.422-20H325V96.574z M25,20h202.516C225.845,26.479,225,33.166,225,40 c0,44.112,35.888,80,80,80c6.837,0,13.523-0.846,20-2.518v130.306h-10.767l-104.359-96.526l-45.801,43.951L120,138.748 l-85.109,109.04H25V20z"
-                      ></path>
-                    </g>
-                  </svg>
-                </div>
-                <div class="contentTwoBigBoxFlexBoxTextBoxOneTxt">
-                  <p class="contentTwoBigBoxFlexBoxTextBoxOneTxtOne">
-                    Web Design
-                  </p>
-                  <p class="contentTwoBigBoxFlexBoxTextBoxOneTxtTwo">
-                    Human-centered design focused on achieving user goals and
-                    business goals.
-                  </p>
-                </div>
-              </div>
-              <div
-                class="contentTwoBigBoxFlexBoxTextBoxOne contentTwoBigBoxFlexBoxTextBoxTwo"
-              >
-                <div class="contentTwoBigBoxFlexBoxTextBoxOneLogoBox">
-                  <svg
-                    height="40px"
-                    width="40px"
-                    viewBox="0 0 1024 1024"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="#f1c30f"
-                  >
-                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                    <g
-                      id="SVGRepo_tracerCarrier"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    ></g>
-                    <g id="SVGRepo_iconCarrier">
-                      <path
-                        fill="#f1c30f"
-                        d="M512 896a320 320 0 1 0 0-640 320 320 0 0 0 0 640zm0 64a384 384 0 1 1 0-768 384 384 0 0 1 0 768z"
-                      ></path>
-                      <path
-                        fill="#f1c30f"
-                        d="M512 320a32 32 0 0 1 32 32l-.512 224a32 32 0 1 1-64 0L480 352a32 32 0 0 1 32-32z"
-                      ></path>
-                      <path
-                        fill="#f1c30f"
-                        d="M448 576a64 64 0 1 0 128 0 64 64 0 1 0-128 0zm96-448v128h-64V128h-96a32 32 0 0 1 0-64h256a32 32 0 1 1 0 64h-96z"
-                      ></path>
-                    </g>
-                  </svg>
-                </div>
-                <div class="contentTwoBigBoxFlexBoxTextBoxOneTxt">
-                  <p class="contentTwoBigBoxFlexBoxTextBoxOneTxtOne">
-                    Web Development
-                  </p>
-                  <p class="contentTwoBigBoxFlexBoxTextBoxOneTxtTwo">
-                    Following software development principles and the lean
-                    startup approach, we can deliver a first working version of
-                    your product within a few weeks
-                  </p>
-                </div>
-              </div>
-              <div
-                class="contentTwoBigBoxFlexBoxTextBoxOne contentTwoBigBoxFlexBoxTextBoxTwo"
-              >
-                <div class="contentTwoBigBoxFlexBoxTextBoxOneLogoBox">
-                  <svg
-                    height="40px"
-                    width="40px"
-                    version="1.0"
-                    id="Layer_1"
-                    xmlns="http://www.w3.org/2000/svg"
-                    xmlns:xlink="http://www.w3.org/1999/xlink"
-                    width="165px"
-                    height="165px"
-                    viewBox="0 0 64.00 64.00"
-                    enable-background="new 0 0 64 64"
-                    xml:space="preserve"
-                    fill="#84b813"
-                    stroke="#84b813"
-                    stroke-width="1.6640000000000001"
-                  >
-                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                    <g
-                      id="SVGRepo_tracerCarrier"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    ></g>
-                    <g id="SVGRepo_iconCarrier">
-                      <g>
-                        <path
-                          fill="#84b813"
-                          d="M48,0H16c-2.211,0-4,1.789-4,4v56c0,2.211,1.789,4,4,4h32c2.211,0,4-1.789,4-4V4C52,1.789,50.211,0,48,0z M50,60c0,1.104-0.896,2-2,2H16c-1.104,0-2-0.896-2-2v-8h36V60z M50,50H14V10h36V50z M50,8H14V4c0-1.104,0.896-2,2-2h32 c1.104,0,2,0.896,2,2V8z"
-                        ></path>
-                        <path
-                          fill="#84b813"
-                          d="M32,60c1.658,0,3-1.342,3-3s-1.342-3-3-3s-3,1.342-3,3S30.342,60,32,60z M32,56c0.553,0,1,0.447,1,1 s-0.447,1-1,1s-1-0.447-1-1S31.447,56,32,56z"
-                        ></path>
-                        <path
-                          fill="#84b813"
-                          d="M33,4h-6c-0.553,0-1,0.447-1,1s0.447,1,1,1h6c0.553,0,1-0.447,1-1S33.553,4,33,4z"
-                        ></path>
-                        <circle fill="#84b813" cx="37" cy="5" r="1"></circle>
-                      </g>
-                    </g>
-                  </svg>
-                </div>
-                <div class="contentTwoBigBoxFlexBoxTextBoxOneTxt">
-                  <p class="contentTwoBigBoxFlexBoxTextBoxOneTxtOne">
-                    Custom Software Development
-                  </p>
-                  <p class="contentTwoBigBoxFlexBoxTextBoxOneTxtTwo">
-                    Our skilled specialists will not only design and code your
-                    software but also advise you on every step of the full
-                    product development cycle and beyond
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="contentThree">
-        <div class="contentThreeTxtBox">
-          <span>Look At Our Achievements</span>
-          <p>More Valued Facts</p>
-        </div>
-        <div class="contentThreeBigBox">
-          <div class="contentThreeSmallSmallBox">
-            <div class="contentThreeSmallSmallBoxIcon">
-              <svg
-                fill="#ffffff"
-                height="50px"
-                width="50px"
-                version="1.1"
-                id="Layer_1"
-                xmlns="http://www.w3.org/2000/svg"
-                xmlns:xlink="http://www.w3.org/1999/xlink"
-                viewBox="0 0 330 330"
-                xml:space="preserve"
-                stroke="#ffffff"
-              >
-                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                <g
-                  id="SVGRepo_tracerCarrier"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                ></g>
-                <g id="SVGRepo_iconCarrier">
-                  <g id="XMLID_92_">
-                    <path
-                      id="XMLID_93_"
-                      d="M165,0C74.019,0,0,74.019,0,165s74.019,165,165,165s165-74.019,165-165S255.981,0,165,0z M165,300 c-74.439,0-135-60.561-135-135S90.561,30,165,30s135,60.561,135,135S239.439,300,165,300z"
-                    ></path>
-                    <path
-                      id="XMLID_104_"
-                      d="M205.306,205.305c-22.226,22.224-58.386,22.225-80.611,0.001c-5.857-5.858-15.355-5.858-21.213,0 c-5.858,5.858-5.858,15.355,0,21.213c16.963,16.963,39.236,25.441,61.519,25.441c22.276,0,44.56-8.482,61.519-25.441 c5.858-5.857,5.858-15.355,0-21.213C220.661,199.447,211.163,199.448,205.306,205.305z"
-                    ></path>
-                    <path
-                      id="XMLID_105_"
-                      d="M115.14,147.14c3.73-3.72,5.86-8.88,5.86-14.14c0-5.26-2.13-10.42-5.86-14.14 c-3.72-3.72-8.88-5.86-14.14-5.86c-5.271,0-10.42,2.14-14.141,5.86C83.13,122.58,81,127.74,81,133c0,5.26,2.13,10.42,5.859,14.14 C90.58,150.87,95.74,153,101,153S111.42,150.87,115.14,147.14z"
-                    ></path>
-                    <path
-                      id="XMLID_106_"
-                      d="M229,113c-5.26,0-10.42,2.14-14.141,5.86C211.14,122.58,209,127.73,209,133c0,5.27,2.14,10.42,5.859,14.14 C218.58,150.87,223.74,153,229,153s10.42-2.13,14.14-5.86c3.72-3.72,5.86-8.87,5.86-14.14c0-5.26-2.141-10.42-5.86-14.14 C239.42,115.14,234.26,113,229,113z"
-                    ></path>
-                  </g>
-                </g>
-              </svg>
-            </div>
-            <div class="contentThreeSmallSmallBoxNum">25</div>
-            <div class="contentThreeSmallSmallBoxTxt">Customers</div>
-          </div>
-          <div class="contentThreeSmallSmallBox">
-            <div class="contentThreeSmallSmallBoxIcon">
-              <svg
-                fill="#ffffff"
-                height="50px"
-                width="50px"
-                version="1.1"
-                id="Capa_1"
-                xmlns="http://www.w3.org/2000/svg"
-                xmlns:xlink="http://www.w3.org/1999/xlink"
-                viewBox="0 0 93.314 93.314"
-                xml:space="preserve"
-                stroke="#ffffff"
-              >
-                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                <g
-                  id="SVGRepo_tracerCarrier"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                ></g>
-                <g id="SVGRepo_iconCarrier">
-                  <g>
-                    <g>
-                      <polygon
-                        points="21.598,0 9.468,16.984 24.022,6.933 "
-                      ></polygon>
-                      <path
-                        d="M73.634,18.349V8.82H62.936V0.119H25.735l2.992,8.557L9.88,21.691v51.16h17.287v10.934H37.38v9.529h46.467V18.349H73.634z M31.522,79.43v-6.578h31.414V13.176h6.343V79.43H31.522L31.522,79.43z M79.489,88.959H41.735v-5.174h31.898v-61.08h5.854v66.254 H79.489z"
-                      ></path>
-                    </g>
-                  </g>
-                </g>
-              </svg>
-            </div>
-            <div class="contentThreeSmallSmallBoxNum">32</div>
-            <div class="contentThreeSmallSmallBoxTxt">Total Web Pages</div>
-          </div>
-          <div class="contentThreeSmallSmallBox">
-            <div class="contentThreeSmallSmallBoxIcon">
-              <svg
-                fill="#ffffff"
-                height="50px"
-                width="50px"
-                version="1.1"
-                id="Layer_1"
-                xmlns:x="&amp;ns_extend;"
-                xmlns:i="&amp;ns_ai;"
-                xmlns:graph="&amp;ns_graphs;"
-                xmlns="http://www.w3.org/2000/svg"
-                xmlns:xlink="http://www.w3.org/1999/xlink"
-                width="153px"
-                height="153px"
-                viewBox="0 0 24.00 24.00"
-                enable-background="new 0 0 24 24"
-                xml:space="preserve"
-                stroke="#ffffff"
-                stroke-width="0.00024000000000000003"
-              >
-                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                <g
-                  id="SVGRepo_tracerCarrier"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                ></g>
-                <g id="SVGRepo_iconCarrier">
-                  <metadata>
-                    <sfw xmlns="&amp;ns_sfw;">
-                      <slices></slices>
-                      <slicesourcebounds
-                        width="505"
-                        height="984"
-                        bottomleftorigin="true"
-                        x="0"
-                        y="-984"
-                      ></slicesourcebounds>
-                    </sfw>
-                  </metadata>
-                  <g>
-                    <g>
-                      <g>
-                        <path
-                          d="M20,24H4c-0.6,0-1-0.4-1-1V3c0-0.6,0.4-1,1-1h16c0.6,0,1,0.4,1,1v20C21,23.6,20.6,24,20,24z M5,22h14V4H5V22z"
-                        ></path>
-                      </g>
-                    </g>
-                    <g>
-                      <g>
-                        <path
-                          d="M8,6C7.4,6,7,5.6,7,5V1c0-0.6,0.4-1,1-1s1,0.4,1,1v4C9,5.6,8.6,6,8,6z"
-                        ></path>
-                      </g>
-                    </g>
-                    <g>
-                      <g>
-                        <path
-                          d="M12,6c-0.6,0-1-0.4-1-1V1c0-0.6,0.4-1,1-1s1,0.4,1,1v4C13,5.6,12.6,6,12,6z"
-                        ></path>
-                      </g>
-                    </g>
-                    <g>
-                      <g>
-                        <path
-                          d="M16,6c-0.6,0-1-0.4-1-1V1c0-0.6,0.4-1,1-1s1,0.4,1,1v4C17,5.6,16.6,6,16,6z"
-                        ></path>
-                      </g>
-                    </g>
-                  </g>
-                </g>
-              </svg>
-            </div>
-            <div class="contentThreeSmallSmallBoxNum">213251</div>
-            <div class="contentThreeSmallSmallBoxTxt">Line of Code</div>
-          </div>
-          <div class="contentThreeSmallSmallBox">
-            <div class="contentThreeSmallSmallBoxIcon">
-              <svg
-                fill="#ffffff"
-                height="50px"
-                width="50px"
-                version="1.1"
-                id="Layer_1"
-                xmlns="http://www.w3.org/2000/svg"
-                xmlns:xlink="http://www.w3.org/1999/xlink"
-                viewBox="0 0 512 512"
-                xml:space="preserve"
-                stroke="#ffffff"
-              >
-                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                <g
-                  id="SVGRepo_tracerCarrier"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                ></g>
-                <g id="SVGRepo_iconCarrier">
-                  <g>
-                    <g>
-                      <path
-                        d="M444.71,45.235c-7.791-6.127-19.328-11.486-35.49-11.435c0.128-2.748,0.367-5.666,0.367-8.201 c0-14.14-11.46-25.6-25.6-25.6h-256c-14.14,0-25.6,11.46-25.6,25.6c0,2.552,0.239,5.495,0.375,8.277 c-16.145-0.051-27.708,5.248-35.499,11.366C49.941,58.82,42.039,83.729,47.185,108.732c4.378,21.265,19.302,33.109,36.574,46.822 c19.046,15.138,42.752,33.963,66.278,73.89c2.372,4.053,6.647,6.298,11.025,6.298c2.227,0,4.446-0.572,6.502-1.775 c2.133-1.254,3.558-3.115,4.634-5.154c16.265,21.845,35.012,38.724,55.953,46.959c-3.337,19.558-11.964,48.316-34.807,59.733 c-8.67,4.335-14.148,13.201-14.148,22.895V384c-14.14,0-25.6,11.46-25.6,25.6v76.8c0,14.14,11.46,25.6,25.6,25.6h153.6 c14.14,0,25.6-11.46,25.6-25.6v-76.8c0-14.14-11.46-25.6-25.6-25.6v-25.6c0-9.694-5.478-18.56-14.148-22.895 c-22.835-11.418-31.471-40.175-34.807-59.733c20.941-8.243,39.697-25.122,55.962-46.959c1.067,2.039,2.492,3.9,4.625,5.154 c2.048,1.203,4.275,1.775,6.502,1.775c4.378,0,8.653-2.253,11.025-6.298c23.526-39.927,47.223-58.752,66.278-73.89 c17.271-13.713,32.196-25.566,36.599-46.839C469.943,83.729,462.042,58.812,444.71,45.235z M99.665,135.501 c-16.828-13.346-25.003-20.301-27.401-31.94c-2.628-12.74-0.299-29.491,10.778-38.178c5.615-4.395,13.321-6.042,22.349-5.521 c5.086,33.195,16.708,73.941,33.69,111.514C124.599,155.452,110.92,144.444,99.665,135.501z M332.787,409.6v76.8h-153.6v-76.8 H332.787z M307.187,358.4c0,25.6,0,25.6,0,25.6h-102.4c0,0,0,0,0-25.6c32.23-16.119,44.083-52.361,48.503-77.124 c0.913,0.034,1.775,0.324,2.697,0.324c0.922,0,1.784-0.29,2.697-0.324C263.104,306.039,274.957,342.281,307.187,358.4z M255.987,256c-70.69,0-128-159.71-128-230.4h256C383.987,96.29,326.677,256,255.987,256z M439.735,103.552 c-2.423,11.648-10.598,18.603-27.426,31.949c-11.255,8.943-24.934,19.951-39.424,35.883 c16.99-37.589,28.612-78.336,33.698-111.539c9.037-0.512,16.734,1.152,22.349,5.547 C440.017,74.078,442.338,90.829,439.735,103.552z"
-                      ></path>
-                    </g>
-                  </g>
-                </g>
-              </svg>
-            </div>
-            <div class="contentThreeSmallSmallBoxNum">777</div>
-            <div class="contentThreeSmallSmallBoxTxt">Cups Of Coffee</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="contentFour">
-        <div class="contentFourTitleBox">
-          <div class="contentFourTitleBoxTitle">
-            We're Well-Skilled With Technologies Like
-          </div>
-          <div class="contentFourTitleBoxTxt">
-            <p>
-              We can advise you with the best technology approach for your
-              project. We like tech challenges and are here to help you build
-              your winning web solution.
-            </p>
-          </div>
-        </div>
-
-        <div class="slide-container swiper">
-          <div class="slide-content">
-            <div class="card-wrapper swiper-wrapper">
-              <div class="card swiper-slide">
-                <div class="contentFourSwiperSmallBoxSmall">
-                  <div class="contentFourSwiperSmallBoxSmallImg">
-                    <img src="img/html-css.jpg" />
-                  </div>
-                  <div class="contentFourSwiperSmallBoxSmallTxt">
-                    <p>HTML/CSS development</p>
-                    <p>
-                      Having years of expertise in HTML5/CSS3 we build
-                      feature-rich CSS3 compatible websites and apps for
-                      multiple devices.
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div class="card swiper-slide">
-                <div class="contentFourSwiperSmallBoxSmall">
-                  <div class="contentFourSwiperSmallBoxSmallImg">
-                    <img src="img/yii.jpg" />
-                  </div>
-                  <div class="contentFourSwiperSmallBoxSmallTxt">
-                    <p>Yii framework development</p>
-                    <p>
-                      It’s a great tool written in PHP and our company is
-                      engaged in Yii framework development which promotes
-                      creation of clean design, flexibility and efficiency.
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div class="card swiper-slide">
-                <div class="contentFourSwiperSmallBoxSmall">
-                  <div class="contentFourSwiperSmallBoxSmallImg">
-                    <img src="img/laravel-img.jpg" />
-                  </div>
-                  <div class="contentFourSwiperSmallBoxSmallTxt">
-                    <p>Laravel development</p>
-                    <p>
-                      Laravel web development provides work with less
-                      complicatedness and is able to offer a great number of
-                      amazing features for your web app
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div class="card swiper-slide">
-                <div class="contentFourSwiperSmallBoxSmall">
-                  <div class="contentFourSwiperSmallBoxSmallImg">
-                    <img src="img/codeigniter-img.jpg" />
-                  </div>
-                  <div class="contentFourSwiperSmallBoxSmallTxt">
-                    <p>CodeIgniter development</p>
-                    <p>
-                      Our experienced CodeIgniter developers write very neat and
-                      clean code and provide high performance to the app
-                      following the precise instruction of framework
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div class="card swiper-slide">
-                <div class="contentFourSwiperSmallBoxSmall">
-                  <div class="contentFourSwiperSmallBoxSmallImg">
-                    <img src="img/vue-js.jpeg" />
-                  </div>
-                  <div class="contentFourSwiperSmallBoxSmallTxt">
-                    <p>Vue.Js development</p>
-                    <p>
-                      Utilizing Vue framework, we have had profound experience &
-                      skills required to build diversified state-of-the-art
-                      single-page web and complex mobile applications.
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div class="card swiper-slide">
-                <div class="contentFourSwiperSmallBoxSmall">
-                  <div class="contentFourSwiperSmallBoxSmallImg">
-                    <img src="img/react.jpg" />
-                  </div>
-                  <div class="contentFourSwiperSmallBoxSmallTxt">
-                    <p>ReactJs development</p>
-                    <p>
-                      We are able to offer a broad spectrum of ReactJS web and
-                      Mobile app development services that are best suited for
-                      the small and big organizations by exploring the
-                      JavaScript open library.
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div class="card swiper-slide">
-                <div class="contentFourSwiperSmallBoxSmall">
-                  <div class="contentFourSwiperSmallBoxSmallImg">
-                    <img src="img/mysql.png" />
-                  </div>
-                  <div class="contentFourSwiperSmallBoxSmallTxt">
-                    <p>MySQL</p>
-                    <p>
-                      If you develop websites or web applications, MySQL is a
-                      good choice
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div class="card swiper-slide">
-                <div class="contentFourSwiperSmallBoxSmall">
-                  <div class="contentFourSwiperSmallBoxSmallImg">
-                    <img src="img/mongo-db.png" />
-                  </div>
-                  <div class="contentFourSwiperSmallBoxSmallTxt">
-                    <p>MongoDB</p>
-                    <p>
-                      Using MongoDB allowed replacing dozens unique survey
-                      systems with a single flexible solution, improved data and
-                      questionnaire reusability, simplified data analysis
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div class="card swiper-slide">
-                <div class="contentFourSwiperSmallBoxSmall">
-                  <div class="contentFourSwiperSmallBoxSmallImg">
-                    <img src="img/elastic.jpeg" />
-                  </div>
-                  <div class="contentFourSwiperSmallBoxSmallTxt">
-                    <p>ElasticSearch</p>
-                    <p>
-                      Elasticsearch delivered the best combination of having a
-                      low cost-base, a simple API, reliable results, and
-                      future-proof scalability, and have become an integral part
-                      of many of the web applications we’ve created.
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div class="card swiper-slide">
-                <div class="contentFourSwiperSmallBoxSmall">
-                  <div class="contentFourSwiperSmallBoxSmallImg">
-                    <img src="img/shopify.jpeg" />
-                  </div>
-                  <div class="contentFourSwiperSmallBoxSmallTxt">
-                    <p>Shopify APP development</p>
-                    <p>
-                      We can helpe companies create and integrate features into
-                      their Shopify stores using custom Shopify App Development
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div class="card swiper-slide">
-                <div class="contentFourSwiperSmallBoxSmall">
-                  <div class="contentFourSwiperSmallBoxSmallImg">
-                    <img src="img/chrome-extension.png" />
-                  </div>
-                  <div class="contentFourSwiperSmallBoxSmallTxt">
-                    <p>Chrome extension</p>
-                    <p>
-                      We can help You create Chrome extensions to assist in
-                      customizing Chrome browser to meet your business
-                      preferences and needs
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div
-            style="display: none"
-            class="swiper-button-next swiper-navBtn"
-          ></div>
-          <div
-            style="display: none"
-            class="swiper-button-prev swiper-navBtn"
-          ></div>
-          <div class="swiper-pagination"></div>
-        </div>
-
-        <div class="contentFourTwoBlock">
-          <div class="contentFourTwoBlockOne">
-            <div class="contentFourTwoBlockOneTxt">
-              <p>Basic Info About Us</p>
-              <p>Our Professional Achievements!</p>
-              <p>
-                Our energy and efforts meet the exact clients’ needs making them
-                really happy with the results of our cooperation. That is what
-                we are passionate about.
-              </p>
-            </div>
-            <div class="contentFourTwoBlockOneTop">
-              <div class="contentFourTwoBlockOneTopOne">
-                <div class="contentFourTwoBlockOneTopOneTxt">
-                  <span>Custom Software Development Services</span>
-                  <span class="contentFourTwoBlockOneTopOneTxtNum">0%</span>
-                </div>
-                <div class="contentFourTwoBlockOneTopOneTop">
-                  <div
-                    class="contentFourTwoBlockOneTopOneTopRealOne realAnimOne"
-                  ></div>
-                </div>
-              </div>
-              <div class="contentFourTwoBlockOneTopOne">
-                <div class="contentFourTwoBlockOneTopOneTxt">
-                  <span>Web Application Development Services</span>
-                  <span class="contentFourTwoBlockOneTopOneTxtNum">0%</span>
-                </div>
-                <div class="contentFourTwoBlockOneTopOneTop">
-                  <div
-                    class="contentFourTwoBlockOneTopOneTopRealOne realAnimTwo"
-                  ></div>
-                </div>
-              </div>
-              <div class="contentFourTwoBlockOneTopOne">
-                <div class="contentFourTwoBlockOneTopOneTxt">
-                  <span>Product Development Services</span>
-                  <span class="contentFourTwoBlockOneTopOneTxtNum">0%</span>
-                </div>
-                <div class="contentFourTwoBlockOneTopOneTop">
-                  <div
-                    class="contentFourTwoBlockOneTopOneTopRealOne realAnimThree"
-                  ></div>
-                </div>
-              </div>
-              <div class="contentFourTwoBlockOneTopOne">
-                <div class="contentFourTwoBlockOneTopOneTxt">
-                  <span>System API Integration</span>
-                  <span class="contentFourTwoBlockOneTopOneTxtNum">0%</span>
-                </div>
-                <div class="contentFourTwoBlockOneTopOneTop">
-                  <div
-                    class="contentFourTwoBlockOneTopOneTopRealOne realAnimFour"
-                  ></div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="contentFourTwoBlockTwo">
-            <img src="img/about-img.jpg" />
-          </div>
-        </div>
-
-        <div class="contentFourThreeBlock">
-          <div class="contentFourThreeBlockTitle">
-            <h4>Some Of The Best Projects</h4>
-            <p>We help ambitious players to implement ideas</p>
-          </div>
-
-          <div class="contentFourThreeBlockOneSmall smallBoxFourOne">
-            <div class="contentFourThreeBlockOneSmallImg">
-              <img src="img/portfolio2.jpg" />
-            </div>
-
-            <div class="contentFourThreeBlockOneSmallTitle">
-              <div>MyMediTravel</div>
-              <div>Compare Clinics, Hospitals & Doctors Worldwide</div>
-            </div>
-          </div>
-
-          <div class="contentFourThreeBlockOneSmall smallBoxFourTwo">
-            <div class="contentFourThreeBlockOneSmallImg">
-              <img src="img/portfolio3.png" />
-            </div>
-
-            <div class="contentFourThreeBlockOneSmallTitle">
-              <div>JobCute</div>
-              <div style="color: #24c1dd">
-                The Smartest Way To Find A Job In Thailand
-              </div>
-            </div>
-          </div>
-
-          <div class="contentFourThreeBlockOneSmall smallBoxFourThree">
-            <div class="contentFourThreeBlockOneSmallImg">
-              <img src="img/portfolio111.png" />
-            </div>
-
-            <div class="contentFourThreeBlockOneSmallTitle">
-              <div>OnShop</div>
-              <div style="color: #84b813">Online Shop Written On Yii2</div>
-            </div>
-          </div>
-
-          <div class="contentFourThreeBlockOneSmall smallBoxFourFour">
-            <div class="contentFourThreeBlockOneSmallImg">
-              <img src="img/portfolio4.png" />
-            </div>
-
-            <div class="contentFourThreeBlockOneSmallTitle">
-              <div>FazWaz</div>
-              <div style="color: #24c1dd">
-                Fully Managed Real Estate Platform
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="contentFive">
-        <div class="contentFiveImg"></div>
-        <div class="contentFiveBigBox">
-          <div class="contentFiveBigBoxTitle">
-            <p>Leave A Message</p>
-            <p>Interested In Working With Us?</p>
-            <p>Let’s Talk and Get Started</p>
-          </div>
-          <div class="contentFiveBigBoxInputBoxTop"></div>
-          <div class="contentFiveBigBoxInputBox">
-            <div class="contentFiveBigBoxInputBoxOne">
-              <div class="contentFiveBigBoxInputBoxOneInp">
-                <input type="text" name="text" placeholder="Name" />
-              </div>
-              <div class="contentFiveBigBoxInputBoxOneInp twoInput">
-                <input type="text" name="surname" placeholder="Surname" />
-              </div>
-            </div>
-            <div class="contentFiveBigBoxInputBoxOne InputBoxTwo">
-              <div class="contentFiveBigBoxInputBoxOneInp">
-                <input type="email" name="email" placeholder="Email" />
-              </div>
-              <div class="contentFiveBigBoxInputBoxOneInp twoInput">
-                <input type="text" name="subject" placeholder="Subject" />
-              </div>
-            </div>
-            <div class="contentFiveBigBoxTextarea">
-              <textarea placeholder="Message"></textarea>
-            </div>
-            <div class="contentFiveBigBoxBtt">
-              <button>Contact Now</button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <footer>
-        <div class="footerLogoBox">f</div>
-        <div class="footerTxtBox">
-          © 2023 CodeTitans. Made with love by titans
-        </div>
+    <div class="labels-grid">
+        <div>Անուն</div>
+        <div>Քանակ</div>
+        <div>Գին</div>
+        <div>Ընդհանուր</div>
         <div></div>
-      </footer>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
-    <script src="script.js"></script>
-  </body>
+
+    <div id="rows-container"></div>
+
+    <div class="footer-section">
+        <div class="total-box">Ընդհանուր (13): <span id="grand-total">0</span> ֏</div>
+        
+        <div class="actions">
+            <button class="btn btn-add" onclick="addRow()" title="Ավելացնել տող">+</button>
+            <button class="btn btn-print" onclick="window.print()">🖨️ Տպել / PDF</button>
+            <button class="btn btn-clear" onclick="clearAll()">🧹 Մաքրել</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Ապրանքների ցուցակ
+    const products = [
+        { name: "Տաղտակ հաստ", price: 1900 },
+        { name: "Տաղտակ մեծ", price: 900 },
+        { name: "Տաղտակ միջին", price: 850 },
+        { name: "Տաղտակ փոքր", price: 800 },
+        { name: "Գրտնակ միջին", price: 1200 },
+        { name: "Գրտնակ ռոլիկ", price: 2700 },
+        { name: "Գրտնակ երկար", price: 1600 },
+        { name: "Գրտնակ օխլավ", price: 750 },
+        { name: "Շվաբր սովորական", price: 1500 },
+        { name: "Շվաբր լաքապատ", price: 2000 },
+        { name: "Լանգետի մուրճ", price: 900 },
+        { name: "Խառնիչ մեծ", price: 400 },
+        { name: "Խառնիչ փոքր", price: 350 },
+        { name: "Հենակ անձեռոցիկի", price: 1000 },
+        { name: "Պիցցա մեծ", price: 2600 },
+        { name: "Պիցցա փոքր", price: 2400 },
+        { name: "Կիպիծիլնիկ", price: 750 },
+        { name: "Տապչան մանկական", price: 1200 },
+        { name: "Հենակ դանակների", price: 7000 },
+        { name: "Ջեմ մեծ", price: 1000 },
+        { name: "Ջեմ միջին", price: 950 },
+        { name: "Ջեմ փոքր", price: 900 }
+    ];
+
+    function addRow(savedData = null) {
+        const container = document.getElementById('rows-container');
+        const rowId = 'row-' + Math.random().toString(36).substr(2, 9);
+        const row = document.createElement('div');
+        row.className = 'row-grid';
+        row.id = rowId;
+
+        let options = '<option value="0">Ընտրեք...</option>';
+        products.forEach(p => {
+            const selected = savedData && savedData.price == p.price ? 'selected' : '';
+            options += `<option value="${p.price}" ${selected}>${p.name}</option>`;
+        });
+
+        row.innerHTML = `
+            <select onchange="calculateRow(this)">${options}</select>
+            <input type="number" class="qty" value="${savedData ? savedData.qty : 1}" oninput="calculateRow(this)">
+            <input type="number" class="price" readonly value="${savedData ? savedData.price : 0}">
+            <input type="number" class="total" readonly value="${savedData ? savedData.total : 0}">
+            <button class="delete-btn" onclick="removeRow('${rowId}')">✕</button>
+        `;
+        container.appendChild(row);
+        calculateGrandTotal();
+    }
+
+    function removeRow(id) {
+        document.getElementById(id).remove();
+        calculateGrandTotal();
+        autoSave();
+    }
+
+    function calculateRow(el) {
+        const row = el.closest('.row-grid');
+        const price = parseFloat(row.querySelector('select').value) || 0;
+        const qty = parseFloat(row.querySelector('.qty').value) || 0;
+        row.querySelector('.price').value = price;
+        row.querySelector('.total').value = price * qty;
+        calculateGrandTotal();
+        autoSave();
+    }
+
+    function calculateGrandTotal() {
+        let sum = 0;
+        document.querySelectorAll('.total').forEach(t => sum += parseFloat(t.value) || 0);
+        document.getElementById('grand-total').innerText = sum.toLocaleString();
+    }
+
+    // Ավտոմատ պահպանում
+    function autoSave() {
+        const rows = [];
+        document.querySelectorAll('.row-grid').forEach(row => {
+            rows.push({
+                price: row.querySelector('select').value,
+                qty: row.querySelector('.qty').value,
+                total: row.querySelector('.total').value
+            });
+        });
+        localStorage.setItem('autoSavedInvoice', JSON.stringify(rows));
+        localStorage.setItem('autoSavedMainSelect', document.querySelector('.main-select').value);
+    }
+
+    function clearAll() {
+        if(confirm("Մաքրե՞լ ամբողջ աղյուսակը:")) {
+            document.getElementById('rows-container').innerHTML = '';
+            localStorage.removeItem('autoSavedInvoice');
+            addRow();
+        }
+    }
+
+    window.onload = () => {
+        const savedRows = JSON.parse(localStorage.getItem('autoSavedInvoice'));
+        const savedSelect = localStorage.getItem('autoSavedMainSelect');
+        
+        if (savedSelect) document.querySelector('.main-select').value = savedSelect;
+
+        if (savedRows && savedRows.length > 0) {
+            savedRows.forEach(data => addRow(data));
+        } else {
+            addRow();
+        }
+    };
+</script>
+
+</body>
 </html>
