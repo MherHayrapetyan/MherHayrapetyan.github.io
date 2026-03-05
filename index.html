@@ -1,146 +1,264 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="hy">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Հաշիվ-Ապրանքագիր</title>
     <style>
-        body { font-family: 'Arial', sans-serif; background-color: #f4f7f6; display: flex; flex-direction: column; align-items: center; padding: 40px; }
-        .container { width: 800px; background: white; padding: 40px; border-radius: 12px; box-shadow: 0 5px 20px rgba(0,0,0,0.1); }
-        
-        .header { text-align: center; margin-bottom: 30px; border-bottom: 2px solid #28a745; padding-bottom: 20px; }
-        .header div { font-size: 18px; font-weight: bold; margin-bottom: 5px; }
+      body {
+        font-family: "Arial", sans-serif;
+        background-color: #f4f7f6;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 40px;
+      }
+      .container {
+        width: 800px;
+        background: white;
+        padding: 40px;
+        border-radius: 12px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+      }
 
-        .main-select { width: 100%; padding: 12px; margin-bottom: 25px; border: 1px solid #ddd; border-radius: 8px; font-size: 16px; }
+      .header {
+        text-align: center;
+        margin-bottom: 30px;
+        border-bottom: 2px solid #28a745;
+        padding-bottom: 20px;
+      }
+      .header div {
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 5px;
+      }
 
-        .labels-grid, .row-grid { 
-            display: grid; 
-            grid-template-columns: 2.5fr 1fr 1fr 1.2fr 45px; 
-            gap: 12px; 
-            margin-bottom: 12px; 
-            align-items: center;
+      .main-select {
+        width: 100%;
+        padding: 12px;
+        margin-bottom: 25px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        font-size: 16px;
+      }
+
+      .labels-grid,
+      .row-grid {
+        display: grid;
+        grid-template-columns: 2.5fr 1fr 1fr 1.2fr 45px;
+        gap: 12px;
+        margin-bottom: 12px;
+        align-items: center;
+      }
+
+      .labels-grid div {
+        font-weight: bold;
+        color: #555;
+        text-align: center;
+        background: #eee;
+        padding: 8px;
+        border-radius: 4px;
+      }
+
+      input,
+      select {
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        font-size: 14px;
+        width: 100%;
+        box-sizing: border-box;
+      }
+      input[readonly] {
+        background-color: #f9f9f9;
+        border-color: #eee;
+        outline: none;
+      }
+
+      .delete-btn {
+        background: #dc3545;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        height: 35px;
+        cursor: pointer;
+        font-weight: bold;
+      }
+      .delete-btn:hover {
+        background: #c82333;
+      }
+
+      .footer-section {
+        margin-top: 30px;
+        border-top: 2px solid #eee;
+        padding-top: 20px;
+        text-align: right;
+      }
+      .total-box {
+        font-size: 22px;
+        font-weight: bold;
+        margin-bottom: 20px;
+      }
+
+      .actions {
+        display: flex;
+        gap: 15px;
+        justify-content: center;
+      }
+      .btn {
+        padding: 12px 30px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-weight: bold;
+        font-size: 16px;
+        transition: 0.2s;
+      }
+      .btn-add {
+        background: #28a745;
+        color: white;
+        font-size: 24px;
+        line-height: 1;
+      }
+      .btn-print {
+        background: #007bff;
+        color: white;
+      }
+      .btn-clear {
+        background: #6c757d;
+        color: white;
+      }
+      .btn:hover {
+        opacity: 0.9;
+        transform: scale(1.02);
+      }
+
+      @media print {
+        body {
+          background: white;
+          padding: 0;
         }
-
-        .labels-grid div { font-weight: bold; color: #555; text-align: center; background: #eee; padding: 8px; border-radius: 4px; }
-
-        input, select { padding: 10px; border: 1px solid #ccc; border-radius: 6px; font-size: 14px; width: 100%; box-sizing: border-box; }
-        input[readonly] { background-color: #f9f9f9; border-color: #eee; outline: none; }
-
-        .delete-btn { background: #dc3545; color: white; border: none; border-radius: 6px; height: 35px; cursor: pointer; font-weight: bold; }
-        .delete-btn:hover { background: #c82333; }
-
-        .footer-section { margin-top: 30px; border-top: 2px solid #eee; padding-top: 20px; text-align: right; }
-        .total-box { font-size: 22px; font-weight: bold; margin-bottom: 20px; }
-        
-        .actions { display: flex; gap: 15px; justify-content: center; }
-        .btn { padding: 12px 30px; border: none; border-radius: 8px; cursor: pointer; font-weight: bold; font-size: 16px; transition: 0.2s; }
-        .btn-add { background: #28a745; color: white; font-size: 24px; line-height: 1; }
-        .btn-print { background: #007bff; color: white; }
-        .btn-clear { background: #6c757d; color: white; }
-        .btn:hover { opacity: 0.9; transform: scale(1.02); }
-
-        @media print {
-            body { background: white; padding: 0; }
-            .container { box-shadow: none; width: 100%; border: none; }
-            .btn, .delete-btn, .actions { display: none !important; }
-            input, select { border: none !important; appearance: none; -webkit-appearance: none; background: transparent; }
-            .labels-grid div { background: #f0f0f0 !important; }
+        .container {
+          box-shadow: none;
+          width: 100%;
+          border: none;
         }
+        .btn,
+        .delete-btn,
+        .actions {
+          display: none !important;
+        }
+        input,
+        select {
+          border: none !important;
+          appearance: none;
+          -webkit-appearance: none;
+          background: transparent;
+        }
+        .labels-grid div {
+          background: #f0f0f0 !important;
+        }
+      }
     </style>
-</head>
-<body>
-
-<div class="container">
-    <div class="header">
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
         <div>Յուրա Հայրապետյան ՆԴՍ</div>
         <div>«ՈՍԿԵ ԱԳԱ» ՍՊԸ</div>
         <div>ՀՎՀՀ՝ 01237057</div>
-    </div>
+      </div>
 
-    <select class="main-select" onchange="autoSave()">
+      <select class="main-select" onchange="autoSave()">
         <option value="">Ընտրեք անունը...</option>
-          <option value="1">Ք․ Երևան, Խաղաղ Դոնի 13</option>
-          <option value="2">Ք․ Երևան, Երվանդ Քոչար 4/8</option>
-          <option value="3">Ք․ Երևան, Գյուլբենկյան 27, թ․ 5/2</option>
-          <option value="4">Ք․ Երևան, Ն․ Ստեփանյան 44/4, թ․48</option>
-          <option value="5">Ք․ Երևան, Զաքյան 2գ</option>
-          <option value="6">Ք․ Երևան, Նար-Դոս 39</option>
-          <option value="7">
-            Ք․ Երևան, 9-րդ զանգ․ Վիլնյուսի փող․ 2շ․,թիվ 103
-          </option>
-          <option value="8">Ք․ Երևան, Մարգարյան փող․, հ8/1</option>
-          <option value="9">Ք․ Երևան, Մաշտոցի 15թիվ 185</option>
-          <option value="10">Ք․ Երևան, Սեբաստիա 141/1 թիվ 70</option>
-          <option value="11">Ք․ Երևան, Հասրաթյան 4</option>
-          <option value="12">Ք․ Երևան, Հանրապետության 61</option>
-          <option value="13">Ք․ Երևան, Ազատության 9թիվ 40</option>
-          <option value="14">Ք․ Գյումրի, Արագածի 8/1</option>
-          <option value="15">Ք․ Երևան, Հյուսիսային պող․ 3շ․ 84տար</option>
-          <option value="16">Ք․ Երևան, Աշխաբադի փող․ թիվ 2/9</option>
-          <option value="17">Ք․ Երևան, 9-րդ զանգ․ Վիլնյուսի փող․ 53/2շ․</option>
-          <option value="18">Ք․ Երևան, Տերյան 66</option>
-          <option value="19">Ք․ Երևան, Հրաչյա Քոչար 16/6</option>
-          <option value="20">Ք․ Երևան, Բագրատունյաց փող․ 8շ․ 74տարածք</option>
-    </select>
+        <option value="1">Ք․ Երևան, Խաղաղ Դոնի 13</option>
+        <option value="2">Ք․ Երևան, Երվանդ Քոչար 4/8</option>
+        <option value="3">Ք․ Երևան, Գյուլբենկյան 27, թ․ 5/2</option>
+        <option value="4">Ք․ Երևան, Ն․ Ստեփանյան 44/4, թ․48</option>
+        <option value="5">Ք․ Երևան, Զաքյան 2գ</option>
+        <option value="6">Ք․ Երևան, Նար-Դոս 39</option>
+        <option value="7">
+          Ք․ Երևան, 9-րդ զանգ․ Վիլնյուսի փող․ 2շ․,թիվ 103
+        </option>
+        <option value="8">Ք․ Երևան, Մարգարյան փող․, հ8/1</option>
+        <option value="9">Ք․ Երևան, Մաշտոցի 15թիվ 185</option>
+        <option value="10">Ք․ Երևան, Սեբաստիա 141/1 թիվ 70</option>
+        <option value="11">Ք․ Երևան, Հասրաթյան 4</option>
+        <option value="12">Ք․ Երևան, Հանրապետության 61</option>
+        <option value="13">Ք․ Երևան, Ազատության 9թիվ 40</option>
+        <option value="14">Ք․ Գյումրի, Արագածի 8/1</option>
+        <option value="15">Ք․ Երևան, Հյուսիսային պող․ 3շ․ 84տար</option>
+        <option value="16">Ք․ Երևան, Աշխաբադի փող․ թիվ 2/9</option>
+        <option value="17">Ք․ Երևան, 9-րդ զանգ․ Վիլնյուսի փող․ 53/2շ․</option>
+        <option value="18">Ք․ Երևան, Տերյան 66</option>
+        <option value="19">Ք․ Երևան, Հրաչյա Քոչար 16/6</option>
+        <option value="20">Ք․ Երևան, Բագրատունյաց փող․ 8շ․ 74տարածք</option>
+      </select>
 
-    <div class="labels-grid">
+      <div class="labels-grid">
         <div>Անուն</div>
         <div>Քանակ</div>
         <div>Գին</div>
         <div>Ընդհանուր</div>
-        <div></div>
-    </div>
+      </div>
 
-    <div id="rows-container"></div>
+      <div id="rows-container"></div>
 
-    <div class="footer-section">
-        <div class="total-box">Ընդհանուր: <span id="grand-total">0</span> ֏</div>
-        
-        <div class="actions">
-            <button class="btn btn-add" onclick="addRow()" title="Ավելացնել տող">+</button>
-            <button class="btn btn-print" onclick="window.print()">🖨️ Տպել / PDF</button>
-            <button class="btn btn-clear" onclick="clearAll()">🧹 Մաքրել</button>
+      <div class="footer-section">
+        <div class="total-box">
+          Ընդհանուր: <span id="grand-total">0</span> ֏
         </div>
-    </div>
-</div>
 
-<script>
-    // Ապրանքների ցուցակ
-    const products = [
+        <div class="actions">
+          <button class="btn btn-add" onclick="addRow()" title="Ավելացնել տող">
+            +
+          </button>
+          <button class="btn btn-print" onclick="window.print()">
+            🖨️ Տպել / PDF
+          </button>
+          <button class="btn btn-clear" onclick="clearAll()">🧹 Մաքրել</button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Ապրանքների ցուցակ
+      const products = [
+        { name: "Գդալ փայտե մեծ", price: 400 },
+        { name: "Գդալ փայտե փոքր", price: 350 },
+        { name: "Գրտնակ մեծ", price: 1600 },
+        { name: "Գրտնակ միջին", price: 1200 },
+        { name: "Գրտնակ ռոլիկ", price: 1800 },
+        { name: "Գրտնակ օխլավ", price: 750 },
+        { name: "Լանգետի մուրճ", price: 900 },
+        { name: "Կիպիծիլնիկ", price: 750 },
+        { name: "Հենակ անձեռոցիկի", price: 1000 },
+        { name: "Շվաբր լաքապատ", price: 2000 },
+        { name: "Շվաբր սովորական", price: 1500 },
+        { name: "Տապչան մանկական", price: 1200 },
         { name: "Տաղտակ հաստ", price: 1900 },
         { name: "Տաղտակ մեծ", price: 900 },
         { name: "Տաղտակ միջին", price: 850 },
         { name: "Տաղտակ փոքր", price: 800 },
-        { name: "Գրտնակ միջին", price: 1200 },
-        { name: "Գրտնակ ռոլիկ", price: 1800 },
-        { name: "Գրտնակ երկար", price: 1600 },
-        { name: "Գրտնակ օխլավ", price: 750 },
-        { name: "Շվաբր սովորական", price: 1500 },
-        { name: "Շվաբր լաքապատ", price: 2000 },
-        { name: "Լանգետի մուրճ", price: 900 },
-        { name: "Խառնիչ մեծ", price: 400 },
-        { name: "Խառնիչ փոքր", price: 350 },
-        { name: "Հենակ անձեռոցիկի", price: 1000 },
-        { name: "Պիցցա մեծ", price: 2600 },
-        { name: "Պիցցա փոքր", price: 2400 },
-        { name: "Կիպիծիլնիկ", price: 750 },
-        { name: "Տապչան մանկական", price: 1200 },
+        { name: "Պիցցա մեծ 0016", price: 2600 },
+        { name: "Պիցցա փոքր 0013", price: 2400 },
         { name: "Հենակ դանակների", price: 7000 },
         { name: "Ջեմ մեծ", price: 1000 },
         { name: "Ջեմ միջին", price: 950 },
-        { name: "Ջեմ փոքր", price: 900 }
-    ];
+        { name: "Ջեմ փոքր", price: 900 },
+      ];
 
-    function addRow(savedData = null) {
-        const container = document.getElementById('rows-container');
-        const rowId = 'row-' + Math.random().toString(36).substr(2, 9);
-        const row = document.createElement('div');
-        row.className = 'row-grid';
+      function addRow(savedData = null) {
+        const container = document.getElementById("rows-container");
+        const rowId = "row-" + Math.random().toString(36).substr(2, 9);
+        const row = document.createElement("div");
+        row.className = "row-grid";
         row.id = rowId;
 
         let options = '<option value="0">Ընտրեք...</option>';
-        products.forEach(p => {
-            const selected = savedData && savedData.price == p.price ? 'selected' : '';
-            options += `<option value="${p.price}" ${selected}>${p.name}</option>`;
+        products.forEach((p) => {
+          const selected =
+            savedData && savedData.price == p.price ? "selected" : "";
+          options += `<option value="${p.price}" ${selected}>${p.name}</option>`;
         });
 
         row.innerHTML = `
@@ -152,67 +270,70 @@
         `;
         container.appendChild(row);
         calculateGrandTotal();
-    }
+      }
 
-    function removeRow(id) {
+      function removeRow(id) {
         document.getElementById(id).remove();
         calculateGrandTotal();
         autoSave();
-    }
+      }
 
-    function calculateRow(el) {
-        const row = el.closest('.row-grid');
-        const price = parseFloat(row.querySelector('select').value) || 0;
-        const qty = parseFloat(row.querySelector('.qty').value) || 0;
-        row.querySelector('.price').value = price;
-        row.querySelector('.total').value = price * qty;
+      function calculateRow(el) {
+        const row = el.closest(".row-grid");
+        const price = parseFloat(row.querySelector("select").value) || 0;
+        const qty = parseFloat(row.querySelector(".qty").value) || 0;
+        row.querySelector(".price").value = price;
+        row.querySelector(".total").value = price * qty;
         calculateGrandTotal();
         autoSave();
-    }
+      }
 
-    function calculateGrandTotal() {
+      function calculateGrandTotal() {
         let sum = 0;
-        document.querySelectorAll('.total').forEach(t => sum += parseFloat(t.value) || 0);
-        document.getElementById('grand-total').innerText = sum.toLocaleString();
-    }
+        document
+          .querySelectorAll(".total")
+          .forEach((t) => (sum += parseFloat(t.value) || 0));
+        document.getElementById("grand-total").innerText = sum.toLocaleString();
+      }
 
-    // Ավտոմատ պահպանում
-    function autoSave() {
+      // Ավտոմատ պահպանում
+      function autoSave() {
         const rows = [];
-        document.querySelectorAll('.row-grid').forEach(row => {
-            rows.push({
-                price: row.querySelector('select').value,
-                qty: row.querySelector('.qty').value,
-                total: row.querySelector('.total').value
-            });
+        document.querySelectorAll(".row-grid").forEach((row) => {
+          rows.push({
+            price: row.querySelector("select").value,
+            qty: row.querySelector(".qty").value,
+            total: row.querySelector(".total").value,
+          });
         });
-        localStorage.setItem('autoSavedInvoice', JSON.stringify(rows));
-        localStorage.setItem('autoSavedMainSelect', document.querySelector('.main-select').value);
-    }
+        localStorage.setItem("autoSavedInvoice", JSON.stringify(rows));
+        localStorage.setItem(
+          "autoSavedMainSelect",
+          document.querySelector(".main-select").value,
+        );
+      }
 
-    function clearAll() {
-        if(confirm("Մաքրե՞լ ամբողջ աղյուսակը:")) {
-            document.getElementById('rows-container').innerHTML = '';
-            localStorage.removeItem('autoSavedInvoice');
-            addRow();
+      function clearAll() {
+        if (confirm("Մաքրե՞լ ամբողջ աղյուսակը:")) {
+          document.getElementById("rows-container").innerHTML = "";
+          localStorage.removeItem("autoSavedInvoice");
+          addRow();
         }
-    }
+      }
 
-    window.onload = () => {
-        const savedRows = JSON.parse(localStorage.getItem('autoSavedInvoice'));
-        const savedSelect = localStorage.getItem('autoSavedMainSelect');
-        
-        if (savedSelect) document.querySelector('.main-select').value = savedSelect;
+      window.onload = () => {
+        const savedRows = JSON.parse(localStorage.getItem("autoSavedInvoice"));
+        const savedSelect = localStorage.getItem("autoSavedMainSelect");
+
+        if (savedSelect)
+          document.querySelector(".main-select").value = savedSelect;
 
         if (savedRows && savedRows.length > 0) {
-            savedRows.forEach(data => addRow(data));
+          savedRows.forEach((data) => addRow(data));
         } else {
-            addRow();
+          addRow();
         }
-    };
-</script>
-
-</body>
-
+      };
+    </script>
+  </body>
 </html>
-
